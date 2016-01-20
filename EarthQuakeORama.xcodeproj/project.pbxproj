@@ -12,9 +12,10 @@
 		023C6C9E1C4E7C49002F513C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 023C6C9C1C4E7C49002F513C /* Main.storyboard */; };
 		023C6CA01C4E7C49002F513C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 023C6C9F1C4E7C49002F513C /* Assets.xcassets */; };
 		023C6CA31C4E7C49002F513C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 023C6CA11C4E7C49002F513C /* LaunchScreen.storyboard */; };
-		023C6CAB1C4EA0C3002F513C /* AnnotationsObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023C6CAA1C4EA0C3002F513C /* AnnotationsObject.swift */; };
+		023C6CAB1C4EA0C3002F513C /* Annotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023C6CAA1C4EA0C3002F513C /* Annotation.swift */; };
 		023C6CAD1C4EB6DC002F513C /* MapViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023C6CAC1C4EB6DC002F513C /* MapViewExtension.swift */; };
 		023C6CAF1C4EC74D002F513C /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023C6CAE1C4EC74D002F513C /* API.swift */; };
+		0967C2531C4FEEB300F1542B /* AnnotationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0967C2521C4FEEB300F1542B /* AnnotationManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,9 +26,10 @@
 		023C6C9F1C4E7C49002F513C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		023C6CA21C4E7C49002F513C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		023C6CA41C4E7C49002F513C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		023C6CAA1C4EA0C3002F513C /* AnnotationsObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AnnotationsObject.swift; path = ../AnnotationsObject.swift; sourceTree = "<group>"; };
+		023C6CAA1C4EA0C3002F513C /* Annotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Annotation.swift; path = ../Annotation.swift; sourceTree = "<group>"; };
 		023C6CAC1C4EB6DC002F513C /* MapViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewExtension.swift; sourceTree = "<group>"; };
 		023C6CAE1C4EC74D002F513C /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		0967C2521C4FEEB300F1542B /* AnnotationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnotationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,12 +65,13 @@
 				023C6C981C4E7C49002F513C /* AppDelegate.swift */,
 				023C6C9A1C4E7C49002F513C /* MapViewController.swift */,
 				023C6CAC1C4EB6DC002F513C /* MapViewExtension.swift */,
-				023C6CAA1C4EA0C3002F513C /* AnnotationsObject.swift */,
+				023C6CAA1C4EA0C3002F513C /* Annotation.swift */,
 				023C6CAE1C4EC74D002F513C /* API.swift */,
 				023C6C9C1C4E7C49002F513C /* Main.storyboard */,
 				023C6C9F1C4E7C49002F513C /* Assets.xcassets */,
 				023C6CA11C4E7C49002F513C /* LaunchScreen.storyboard */,
 				023C6CA41C4E7C49002F513C /* Info.plist */,
+				0967C2521C4FEEB300F1542B /* AnnotationManager.swift */,
 			);
 			path = EarthQuakeORama;
 			sourceTree = "<group>";
@@ -146,7 +149,8 @@
 			files = (
 				023C6C9B1C4E7C49002F513C /* MapViewController.swift in Sources */,
 				023C6C991C4E7C49002F513C /* AppDelegate.swift in Sources */,
-				023C6CAB1C4EA0C3002F513C /* AnnotationsObject.swift in Sources */,
+				0967C2531C4FEEB300F1542B /* AnnotationManager.swift in Sources */,
+				023C6CAB1C4EA0C3002F513C /* Annotation.swift in Sources */,
 				023C6CAD1C4EB6DC002F513C /* MapViewExtension.swift in Sources */,
 				023C6CAF1C4EC74D002F513C /* API.swift in Sources */,
 			);
@@ -298,6 +302,7 @@
 				023C6CA91C4E7C49002F513C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

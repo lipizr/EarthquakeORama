@@ -9,19 +9,23 @@
 
 import MapKit
 
-class Annotations: NSObject, MKAnnotation {
+class Annotation: NSObject, MKAnnotation {
     
     
     let locationName: String?
     let coordinates: CLLocationCoordinate2D
     let title: String?
+    let desc:String?
+    
     //let date: NSDate?
     //let time: NSDate?
     
-    init(locationName: String,coordinates: CLLocationCoordinate2D, title: String /*time: NSDate*/) {
+    init(locationName: String,coordinates: CLLocationCoordinate2D, title: String, desc: String) {
         self.locationName = locationName
         self.coordinates = coordinates
         self.title = title
+        self.desc = desc
+        
         //self.date = date
         //self.time = time
         

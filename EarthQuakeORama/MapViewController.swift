@@ -15,7 +15,7 @@ import MapKit
 class ViewController: UIViewController {
 
     
-    
+     let Infoarray = API.getEarthquakeInformation()
     
     //Step 2: Create an outlet for your map
     @IBOutlet var mapView: MKMapView!
@@ -43,9 +43,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        let array = API.getEarthquakeInformation()
-        print(array)
+       
+        print(Infoarray)
         
         
         
@@ -56,7 +55,7 @@ class ViewController: UIViewController {
         centerMapOnLocation(initialLocation)
         
         // This creates a new annotations object and adds an annotation to the map view
-        let annotation = Annotations(locationName: "Bay Area", coordinates: CLLocationCoordinate2D(latitude: 37.7833, longitude: -122.4167),title: "Bay Area State Park")
+        let annotation = Annotation(locationName: "Bay Area", coordinates: CLLocationCoordinate2D(latitude: 37.7833, longitude: -122.4167),title: "Bay Area State Park", desc: "this is a description")
         // Add the annotation to the map.
         mapView.addAnnotation(annotation)
         
