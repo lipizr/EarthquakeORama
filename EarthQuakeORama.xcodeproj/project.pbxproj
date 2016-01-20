@@ -15,6 +15,7 @@
 		023C6CAB1C4EA0C3002F513C /* Annotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023C6CAA1C4EA0C3002F513C /* Annotation.swift */; };
 		023C6CAD1C4EB6DC002F513C /* MapViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023C6CAC1C4EB6DC002F513C /* MapViewExtension.swift */; };
 		023C6CAF1C4EC74D002F513C /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023C6CAE1C4EC74D002F513C /* API.swift */; };
+		023C6CB11C5018C3002F513C /* InformationTableViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023C6CB01C5018C3002F513C /* InformationTableViewViewController.swift */; };
 		0967C2531C4FEEB300F1542B /* AnnotationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0967C2521C4FEEB300F1542B /* AnnotationManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +30,7 @@
 		023C6CAA1C4EA0C3002F513C /* Annotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Annotation.swift; path = ../Annotation.swift; sourceTree = "<group>"; };
 		023C6CAC1C4EB6DC002F513C /* MapViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewExtension.swift; sourceTree = "<group>"; };
 		023C6CAE1C4EC74D002F513C /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		023C6CB01C5018C3002F513C /* InformationTableViewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InformationTableViewViewController.swift; sourceTree = "<group>"; };
 		0967C2521C4FEEB300F1542B /* AnnotationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnotationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -72,6 +74,7 @@
 				023C6CA11C4E7C49002F513C /* LaunchScreen.storyboard */,
 				023C6CA41C4E7C49002F513C /* Info.plist */,
 				0967C2521C4FEEB300F1542B /* AnnotationManager.swift */,
+				023C6CB01C5018C3002F513C /* InformationTableViewViewController.swift */,
 			);
 			path = EarthQuakeORama;
 			sourceTree = "<group>";
@@ -149,6 +152,7 @@
 			files = (
 				023C6C9B1C4E7C49002F513C /* MapViewController.swift in Sources */,
 				023C6C991C4E7C49002F513C /* AppDelegate.swift in Sources */,
+				023C6CB11C5018C3002F513C /* InformationTableViewViewController.swift in Sources */,
 				0967C2531C4FEEB300F1542B /* AnnotationManager.swift in Sources */,
 				023C6CAB1C4EA0C3002F513C /* Annotation.swift in Sources */,
 				023C6CAD1C4EB6DC002F513C /* MapViewExtension.swift in Sources */,

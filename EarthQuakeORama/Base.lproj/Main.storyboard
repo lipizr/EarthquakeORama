@@ -31,12 +31,22 @@
                                     <action selector="segControlTapped:" destination="BYZ-38-t0r" eventType="valueChanged" id="BaX-u9-87N"/>
                                 </connections>
                             </segmentedControl>
+                            <containerView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gsa-3S-cwc">
+                                <rect key="frame" x="0.0" y="334" width="600" height="222"/>
+                                <connections>
+                                    <segue destination="Opd-Jk-WSI" kind="embed" id="6ry-Lw-etJ"/>
+                                </connections>
+                            </containerView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Ir-7w-DGf">
                                 <rect key="frame" x="0.0" y="556" width="600" height="44"/>
                                 <items>
                                     <barButtonItem title="Map" id="gV8-g5-X0M"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="BvK-sM-WG1"/>
-                                    <barButtonItem title="List View" width="327" id="vSs-Lp-u38"/>
+                                    <barButtonItem title="List View" width="327" id="vSs-Lp-u38">
+                                        <connections>
+                                            <action selector="listViewTapped:" destination="BYZ-38-t0r" id="sYN-Ks-YwO"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="APV-Cn-S8Z"/>
                                     <barButtonItem title="Item" id="sJ2-rL-ZwE"/>
                                 </items>
@@ -48,16 +58,20 @@
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="qbJ-p3-bzj" secondAttribute="bottom" id="54O-Qt-xBw"/>
                             <constraint firstItem="Qtq-X7-bsD" firstAttribute="centerX" secondItem="qbJ-p3-bzj" secondAttribute="centerX" id="5Jh-bx-iAJ"/>
                             <constraint firstItem="qbJ-p3-bzj" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="E8k-f5-5mS"/>
+                            <constraint firstItem="gsa-3S-cwc" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Gou-Hl-9kY"/>
                             <constraint firstAttribute="trailing" secondItem="qbJ-p3-bzj" secondAttribute="trailing" id="HOd-mv-ofv"/>
                             <constraint firstItem="qbJ-p3-bzj" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="HZr-Cg-TwP"/>
                             <constraint firstItem="8Ir-7w-DGf" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="JYw-Qf-ves"/>
                             <constraint firstItem="qbJ-p3-bzj" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="JdE-9q-hWP"/>
                             <constraint firstItem="qbJ-p3-bzj" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="KJD-cK-ivX"/>
                             <constraint firstItem="8Ir-7w-DGf" firstAttribute="top" secondItem="qbJ-p3-bzj" secondAttribute="bottom" id="S6v-8w-ifa"/>
+                            <constraint firstAttribute="trailing" secondItem="gsa-3S-cwc" secondAttribute="trailing" id="TYS-TX-vvf"/>
                             <constraint firstItem="Qtq-X7-bsD" firstAttribute="width" secondItem="qbJ-p3-bzj" secondAttribute="width" multiplier="0.4" id="X6g-ls-sXj"/>
+                            <constraint firstItem="gsa-3S-cwc" firstAttribute="height" secondItem="qbJ-p3-bzj" secondAttribute="height" multiplier="0.4" id="ZDr-9G-2sK"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="8Ir-7w-DGf" secondAttribute="bottom" id="cV1-iD-gaF"/>
                             <constraint firstAttribute="trailing" secondItem="8Ir-7w-DGf" secondAttribute="trailing" id="h70-Tg-Ny3"/>
                             <constraint firstItem="qbJ-p3-bzj" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="q0J-sg-saX"/>
+                            <constraint firstItem="8Ir-7w-DGf" firstAttribute="top" secondItem="gsa-3S-cwc" secondAttribute="bottom" id="rpd-2w-tGv"/>
                             <constraint firstItem="qbJ-p3-bzj" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="yJ7-n8-CMX"/>
                         </constraints>
                         <variation key="default">
@@ -72,12 +86,39 @@
                     </view>
                     <navigationItem key="navigationItem" id="SVU-nY-Xnu"/>
                     <connections>
+                        <outlet property="containerView" destination="gsa-3S-cwc" id="qYW-lE-cdp"/>
                         <outlet property="mapView" destination="qbJ-p3-bzj" id="72v-Db-kmo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1518" y="648"/>
+        </scene>
+        <!--Information Table View View Controller-->
+        <scene sceneID="lAq-HV-yCd">
+            <objects>
+                <viewController storyboardIdentifier="InformationTableViewViewController" id="Opd-Jk-WSI" customClass="InformationTableViewViewController" customModule="EarthQuakeORama" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Sa0-NS-aR5">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="222"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="w03-J3-Djo">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="222"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="w03-J3-Djo" firstAttribute="top" secondItem="Sa0-NS-aR5" secondAttribute="top" id="OU4-qV-1Bx"/>
+                            <constraint firstAttribute="bottom" secondItem="w03-J3-Djo" secondAttribute="bottom" id="ZGB-5D-uBB"/>
+                            <constraint firstAttribute="trailing" secondItem="w03-J3-Djo" secondAttribute="trailing" id="bjo-Zt-Uz8"/>
+                            <constraint firstItem="w03-J3-Djo" firstAttribute="leading" secondItem="Sa0-NS-aR5" secondAttribute="leading" id="sx8-8z-F3v"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oc1-Az-f1R" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1518" y="1180.5"/>
         </scene>
     </scenes>
 </document>

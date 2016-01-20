@@ -13,7 +13,7 @@ class API: NSObject {
     static func getEarthquakeInformation(completionHandler: (informationArray: NSMutableArray) -> ())  {
         
         let session = NSURLSession.sharedSession()
-        let urlString = "http://ehp2-earthquake.wr.usgs.gov/fdsnws/event/1/query?format=geojson&limit=20"
+        let urlString = "http://ehp2-earthquake.wr.usgs.gov/fdsnws/event/1/query?format=geojson&limit=40"
         let url = NSURL(string: urlString)!
         let request = NSURLRequest(URL: url)
         let task = session.dataTaskWithRequest(request){ data,response,downloadError in

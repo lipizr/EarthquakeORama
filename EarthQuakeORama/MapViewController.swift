@@ -14,13 +14,15 @@ import MapKit
 
 class ViewController: UIViewController {
 
-    
+    var toggleState = 1
     var Infoarray = NSMutableArray()
     
+    @IBOutlet var containerView: UIView!
     
     
     //Step 2: Create an outlet for your map
     @IBOutlet var mapView: MKMapView!
+    @IBOutlet var listView: UIView!
     
     // Change Map Type
     @IBAction func segControlTapped(sender: UISegmentedControl) {
@@ -44,51 +46,74 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print("from vdl\(Infoarray)")
         
-        API.getEarthquakeInformation(saveInfoArray)
+        
+//        print("from vdl\(Infoarray)")
         
         //Step 3: Set Initial Location
         let initialLocation = CLLocation(latitude: 37.7833, longitude: -122.4167)
         // This calls the helper method to zoom into the initialLocation.
         centerMapOnLocation(initialLocation)
         
-        // This creates a new annotations object and adds an annotation to the map view
-        let annotation = Annotation(locationName: "Bay Area", coordinates: CLLocationCoordinate2D(latitude: 37.7833, longitude: -122.4167),title: "Bay Area State Park", desc: "this is a description")
-        // Add the annotation to the map.
-        mapView.addAnnotation(annotation)
         //set the delegate of the map to equal self. (this class)
         mapView.delegate = self
         
-        
+        API.getEarthquakeInformation(saveInfoArray)
     }
-    
    
     
     // this is the method that is printing the information.
-    func saveInfoArray(infoArray: NSMutableArray) {
+    func saveInfoArray(dataArray: NSMutableArray) {
         
-        Infoarray = infoArray
+        Infoarray = dataArray
         
         for item in Infoarray {
-            print(item["geometry"]!!["coordinates"]!![0])
-            //this prints the longtudes.
             
+            if let lat = item["geometry"]!!["coordinates"]!![1] as? CLLocationDegrees {
+                if let long = item["geometry"]!!["coordinates"]!![0] as? CLLocationDegrees {
+                    print("lat: \(lat)")
+                    print("long: \(long)")
+                    //loop through the lats and longs and add annotation to map.
+                    let annotation = Annotation(locationName: "Bay Area", coordinates: CLLocationCoordinate2D(latitude: lat , longitude: long),title: "Bay Area State Park", desc: "this is a description")
+                    // Add the annotation to the map.
+                    mapView.addAnnotation(annotation)
+                }
+            }
         }
+        
+        print(Infoarray)
+
         
     }
     
-
     // This method centers the map on the initial location
     func centerMapOnLocation(location:CLLocation) {
         
         // This sets radius distance. I set it to 10K km.
-        let regionRadius : CLLocationDistance = 30000
+        let regionRadius : CLLocationDistance = 300000
         
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate, regionRadius * 2.0, regionRadius * 2.0)
         // setRegion tells the mapview to display the region.
         mapView.setRegion(coordinateRegion, animated: true)
     }
     
-  }
+    @IBAction func listViewTapped(sender: AnyObject) {
+        
+        switch toggleState {
+            
+        case 0: self.containerView.hidden = true 
+                toggleState = 1
+            
+        case 1: self.containerView.hidden = false
+                toggleState = 0
+            
+        default: toggleState = 0
+        
+        }
+        
+       
+        UIModalPresentationStyle.OverCurrentContext
+        
+    }
+}
 
