@@ -10,9 +10,9 @@ import UIKit
 
 class API: NSObject {
     
-    var informationArray = [NSMutableArray]()
+    static var informationArray = [NSMutableArray]()
     
-    func getEarthquakeInformation() {
+     static func getEarthquakeInformation() -> [NSMutableArray] {
         
         let session = NSURLSession.sharedSession()
         let urlString = "http://ehp2-earthquake.wr.usgs.gov/fdsnws/event/1/query?format=geojson&limit=20"
@@ -48,7 +48,7 @@ class API: NSObject {
         
         
         task.resume()
-        
+        return informationArray
         
         
     }

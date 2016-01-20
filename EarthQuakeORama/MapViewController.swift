@@ -44,6 +44,12 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         
+        let array = API.getEarthquakeInformation()
+        print(array)
+        
+        
+        
+        
         //Step 3: Set Initial Location
         let initialLocation = CLLocation(latitude: 37.7833, longitude: -122.4167)
         // This calls the helper method to zoom into the initialLocation.
