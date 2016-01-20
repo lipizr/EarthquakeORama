@@ -15,7 +15,9 @@ import MapKit
 class ViewController: UIViewController {
 
     
-     let Infoarray = API.getEarthquakeInformation()
+    var Infoarray = NSMutableArray()
+    
+    
     
     //Step 2: Create an outlet for your map
     @IBOutlet var mapView: MKMapView!
@@ -39,15 +41,12 @@ class ViewController: UIViewController {
     }
     
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       
-        print(Infoarray)
+        print("from vdl\(Infoarray)")
         
-        
-        
+        API.getEarthquakeInformation(saveInfoArray)
         
         //Step 3: Set Initial Location
         let initialLocation = CLLocation(latitude: 37.7833, longitude: -122.4167)
@@ -58,19 +57,33 @@ class ViewController: UIViewController {
         let annotation = Annotation(locationName: "Bay Area", coordinates: CLLocationCoordinate2D(latitude: 37.7833, longitude: -122.4167),title: "Bay Area State Park", desc: "this is a description")
         // Add the annotation to the map.
         mapView.addAnnotation(annotation)
-        
+        //set the delegate of the map to equal self. (this class)
         mapView.delegate = self
+        
         
     }
     
+   
     
+    // this is the method that is printing the information.
+    func saveInfoArray(infoArray: NSMutableArray) {
+        
+        Infoarray = infoArray
+        
+        for item in Infoarray {
+            print(item["geometry"]!!["coordinates"]!![0])
+            //this prints the longtudes.
+            
+        }
+        
+    }
     
 
     // This method centers the map on the initial location
     func centerMapOnLocation(location:CLLocation) {
         
         // This sets radius distance. I set it to 10K km.
-        let regionRadius : CLLocationDistance = 10500
+        let regionRadius : CLLocationDistance = 30000
         
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate, regionRadius * 2.0, regionRadius * 2.0)
         // setRegion tells the mapview to display the region.

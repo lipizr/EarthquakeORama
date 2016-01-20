@@ -14,7 +14,7 @@ extension ViewController: MKMapViewDelegate {
     // /this is the view that pop up when you touch the annotation
     func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
         
-        if let annotation = annotation as? Annotations {
+        if let annotation = annotation as? Annotation {
             let identifier = "pin"
             var view: MKAnnotationView
             if let dequedView = mapView.dequeueReusableAnnotationViewWithIdentifier(identifier) as? MKPinAnnotationView {

@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="qbJ-p3-bzj">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="556"/>
                             </mapView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Qtq-X7-bsD">
                                 <rect key="frame" x="180" y="30" width="240" height="29"/>
@@ -31,6 +31,16 @@
                                     <action selector="segControlTapped:" destination="BYZ-38-t0r" eventType="valueChanged" id="BaX-u9-87N"/>
                                 </connections>
                             </segmentedControl>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Ir-7w-DGf">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <items>
+                                    <barButtonItem title="Map" id="gV8-g5-X0M"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="BvK-sM-WG1"/>
+                                    <barButtonItem title="List View" width="327" id="vSs-Lp-u38"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="APV-Cn-S8Z"/>
+                                    <barButtonItem title="Item" id="sJ2-rL-ZwE"/>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -40,9 +50,13 @@
                             <constraint firstItem="qbJ-p3-bzj" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="E8k-f5-5mS"/>
                             <constraint firstAttribute="trailing" secondItem="qbJ-p3-bzj" secondAttribute="trailing" id="HOd-mv-ofv"/>
                             <constraint firstItem="qbJ-p3-bzj" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="HZr-Cg-TwP"/>
+                            <constraint firstItem="8Ir-7w-DGf" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="JYw-Qf-ves"/>
                             <constraint firstItem="qbJ-p3-bzj" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="JdE-9q-hWP"/>
                             <constraint firstItem="qbJ-p3-bzj" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="KJD-cK-ivX"/>
+                            <constraint firstItem="8Ir-7w-DGf" firstAttribute="top" secondItem="qbJ-p3-bzj" secondAttribute="bottom" id="S6v-8w-ifa"/>
                             <constraint firstItem="Qtq-X7-bsD" firstAttribute="width" secondItem="qbJ-p3-bzj" secondAttribute="width" multiplier="0.4" id="X6g-ls-sXj"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="8Ir-7w-DGf" secondAttribute="bottom" id="cV1-iD-gaF"/>
+                            <constraint firstAttribute="trailing" secondItem="8Ir-7w-DGf" secondAttribute="trailing" id="h70-Tg-Ny3"/>
                             <constraint firstItem="qbJ-p3-bzj" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="q0J-sg-saX"/>
                             <constraint firstItem="qbJ-p3-bzj" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="yJ7-n8-CMX"/>
                         </constraints>
@@ -52,6 +66,7 @@
                                 <exclude reference="HZr-Cg-TwP"/>
                                 <exclude reference="JdE-9q-hWP"/>
                                 <exclude reference="KJD-cK-ivX"/>
+                                <exclude reference="54O-Qt-xBw"/>
                             </mask>
                         </variation>
                     </view>
