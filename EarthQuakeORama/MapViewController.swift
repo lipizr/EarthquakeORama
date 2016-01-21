@@ -22,7 +22,7 @@ class ViewController: UIViewController {
     
     //Step 2: Create an outlet for your map
     @IBOutlet var mapView: MKMapView!
-    @IBOutlet var listView: UIView!
+    
     
     // Change Map Type
     @IBAction func segControlTapped(sender: UISegmentedControl) {
@@ -62,7 +62,7 @@ class ViewController: UIViewController {
    
     
     // this is the method that is printing the information.
-    func saveInfoArray(dataArray: NSMutableArray) {
+    func saveInfoArray(dataArray: NSMutableArray)  {
         
         Infoarray = dataArray
         
@@ -84,9 +84,13 @@ class ViewController: UIViewController {
             }
         }
         
-        print(Infoarray)
+        //print(Infoarray)
         
-        
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let seg = segue.destinationViewController as? InformationTableView
+        seg?.tableViewDataArray = Infoarray
         
     }
     
@@ -102,31 +106,5 @@ class ViewController: UIViewController {
         mapView.setRegion(coordinateRegion, animated: true)
     }
     
-    @IBAction func listViewTapped(sender: AnyObject) {
-        
-        
-        
-       // let tableVC = self.storyboard?.instantiateViewControllerWithIdentifier("InformationTableView") as? InformationTableView
-        
-//        switch toggleState {
-//            
-//        case 0: self.presentViewController(tableVC!, animated: true, completion: nil)
-//                self.modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext
-//        
-//                toggleState = 1
-//            
-//        case 1: dismissViewControllerAnimated(true, completion: nil)
-//                toggleState = 0
-//            
-//        default: toggleState = 0
-//        
-//        }
-        
-        dismissViewControllerAnimated(true, completion: nil)
-        
-       
-        
-        
-    }
 }
 

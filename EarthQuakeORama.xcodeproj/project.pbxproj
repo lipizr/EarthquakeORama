@@ -67,19 +67,51 @@
 			isa = PBXGroup;
 			children = (
 				023C6C981C4E7C49002F513C /* AppDelegate.swift */,
-				023C6C9A1C4E7C49002F513C /* MapViewController.swift */,
-				023C6CAC1C4EB6DC002F513C /* MapViewExtension.swift */,
-				023C6CAA1C4EA0C3002F513C /* Annotation.swift */,
-				023C6CAE1C4EC74D002F513C /* API.swift */,
+				0967C2521C4FEEB300F1542B /* AnnotationManager.swift */,
 				023C6C9C1C4E7C49002F513C /* Main.storyboard */,
+				023C6CD71C50804F002F513C /* Controllers */,
+				023C6CD61C50803B002F513C /* Model */,
+				023C6CD51C508025002F513C /* Api */,
+				023C6CD41C508012002F513C /* Cells */,
 				023C6C9F1C4E7C49002F513C /* Assets.xcassets */,
 				023C6CA11C4E7C49002F513C /* LaunchScreen.storyboard */,
 				023C6CA41C4E7C49002F513C /* Info.plist */,
-				0967C2521C4FEEB300F1542B /* AnnotationManager.swift */,
-				023C6CB01C5018C3002F513C /* InformationTableView.swift */,
-				023C6CB21C50421A002F513C /* InformationTVCell.swift */,
 			);
 			path = EarthQuakeORama;
+			sourceTree = "<group>";
+		};
+		023C6CD41C508012002F513C /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				023C6CB21C50421A002F513C /* InformationTVCell.swift */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
+		023C6CD51C508025002F513C /* Api */ = {
+			isa = PBXGroup;
+			children = (
+				023C6CAE1C4EC74D002F513C /* API.swift */,
+			);
+			name = Api;
+			sourceTree = "<group>";
+		};
+		023C6CD61C50803B002F513C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				023C6CAA1C4EA0C3002F513C /* Annotation.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		023C6CD71C50804F002F513C /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				023C6CB01C5018C3002F513C /* InformationTableView.swift */,
+				023C6C9A1C4E7C49002F513C /* MapViewController.swift */,
+				023C6CAC1C4EB6DC002F513C /* MapViewExtension.swift */,
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
