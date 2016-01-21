@@ -16,17 +16,18 @@ extension ViewController: MKMapViewDelegate {
         let annotationReuseId = "pin"
         var anView = mapView.dequeueReusableAnnotationViewWithIdentifier(annotationReuseId)
         
-        if anView == nil {
+              if anView == nil {
             anView = MKAnnotationView(annotation: annotation, reuseIdentifier: annotationReuseId)
         } else {
             anView!.annotation = annotation
         }
         
         if let anView = anView {
-        anView.image = UIImage(named: "annotationPin")
-        anView.backgroundColor = UIColor.clearColor()
-        anView.canShowCallout = true
-        anView.rightCalloutAccessoryView = UIButton(type: .DetailDisclosure) as UIView
+            
+            anView.image = UIImage(named: "annotationPin")
+            anView.backgroundColor = UIColor.clearColor()
+            anView.canShowCallout = true
+            anView.rightCalloutAccessoryView = UIButton(type: .DetailDisclosure) as UIView
         }
         return anView!
     }

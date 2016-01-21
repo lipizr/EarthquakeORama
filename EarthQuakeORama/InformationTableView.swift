@@ -49,7 +49,7 @@ class InformationTableView: UIViewController, UITableViewDelegate, UITableViewDa
         
         cell?.locationLabel?.text = titleArray[indexPath.row] as? String
         cell?.backgroundColor = UIColor.clearColor()
-        cell?.accessoryType = .DetailDisclosureButton
+        cell?.accessoryType = .DisclosureIndicator
         return cell!
     }
 

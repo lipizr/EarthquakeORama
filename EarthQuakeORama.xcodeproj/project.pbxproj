@@ -17,7 +17,8 @@
 		023C6CAF1C4EC74D002F513C /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023C6CAE1C4EC74D002F513C /* API.swift */; };
 		023C6CB11C5018C3002F513C /* InformationTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023C6CB01C5018C3002F513C /* InformationTableView.swift */; };
 		023C6CB31C50421A002F513C /* InformationTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023C6CB21C50421A002F513C /* InformationTVCell.swift */; };
-		0967C2531C4FEEB300F1542B /* AnnotationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0967C2521C4FEEB300F1542B /* AnnotationManager.swift */; };
+		023C6CD91C5142D7002F513C /* OptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023C6CD81C5142D7002F513C /* OptionsViewController.swift */; };
+		023C6CDB1C516CB3002F513C /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 023C6CDA1C516CB3002F513C /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,7 +34,8 @@
 		023C6CAE1C4EC74D002F513C /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		023C6CB01C5018C3002F513C /* InformationTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InformationTableView.swift; sourceTree = "<group>"; };
 		023C6CB21C50421A002F513C /* InformationTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InformationTVCell.swift; sourceTree = "<group>"; };
-		0967C2521C4FEEB300F1542B /* AnnotationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnotationManager.swift; sourceTree = "<group>"; };
+		023C6CD81C5142D7002F513C /* OptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsViewController.swift; sourceTree = "<group>"; };
+		023C6CDA1C516CB3002F513C /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				023C6CDB1C516CB3002F513C /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,6 +53,7 @@
 		023C6C8C1C4E7C49002F513C = {
 			isa = PBXGroup;
 			children = (
+				023C6CDC1C516CDE002F513C /* FrameWorks */,
 				023C6C971C4E7C49002F513C /* EarthQuakeORama */,
 				023C6C961C4E7C49002F513C /* Products */,
 			);
@@ -67,14 +71,13 @@
 			isa = PBXGroup;
 			children = (
 				023C6C981C4E7C49002F513C /* AppDelegate.swift */,
-				0967C2521C4FEEB300F1542B /* AnnotationManager.swift */,
-				023C6C9C1C4E7C49002F513C /* Main.storyboard */,
 				023C6CD71C50804F002F513C /* Controllers */,
 				023C6CD61C50803B002F513C /* Model */,
 				023C6CD51C508025002F513C /* Api */,
 				023C6CD41C508012002F513C /* Cells */,
 				023C6C9F1C4E7C49002F513C /* Assets.xcassets */,
 				023C6CA11C4E7C49002F513C /* LaunchScreen.storyboard */,
+				023C6C9C1C4E7C49002F513C /* Main.storyboard */,
 				023C6CA41C4E7C49002F513C /* Info.plist */,
 			);
 			path = EarthQuakeORama;
@@ -110,8 +113,18 @@
 				023C6CB01C5018C3002F513C /* InformationTableView.swift */,
 				023C6C9A1C4E7C49002F513C /* MapViewController.swift */,
 				023C6CAC1C4EB6DC002F513C /* MapViewExtension.swift */,
+				023C6CD81C5142D7002F513C /* OptionsViewController.swift */,
 			);
 			name = Controllers;
+			sourceTree = "<group>";
+		};
+		023C6CDC1C516CDE002F513C /* FrameWorks */ = {
+			isa = PBXGroup;
+			children = (
+				023C6CDA1C516CB3002F513C /* CoreLocation.framework */,
+			);
+			name = FrameWorks;
+			path = EarthQuakeORama;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -185,11 +198,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				023C6CD91C5142D7002F513C /* OptionsViewController.swift in Sources */,
 				023C6C9B1C4E7C49002F513C /* MapViewController.swift in Sources */,
 				023C6C991C4E7C49002F513C /* AppDelegate.swift in Sources */,
 				023C6CB31C50421A002F513C /* InformationTVCell.swift in Sources */,
 				023C6CB11C5018C3002F513C /* InformationTableView.swift in Sources */,
-				0967C2531C4FEEB300F1542B /* AnnotationManager.swift in Sources */,
 				023C6CAB1C4EA0C3002F513C /* Annotation.swift in Sources */,
 				023C6CAD1C4EB6DC002F513C /* MapViewExtension.swift in Sources */,
 				023C6CAF1C4EC74D002F513C /* API.swift in Sources */,
