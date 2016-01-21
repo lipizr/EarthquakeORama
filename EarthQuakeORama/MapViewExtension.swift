@@ -13,27 +13,24 @@ extension ViewController: MKMapViewDelegate {
     
     // /this is the view that pop up when you touch the annotation
     func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
+        let annotationReuseId = "pin"
+        var anView = mapView.dequeueReusableAnnotationViewWithIdentifier(annotationReuseId)
         
-        if let annotation = annotation as? Annotation {
-            let identifier = "pin"
-            var view: MKAnnotationView
-            if let dequedView = mapView.dequeueReusableAnnotationViewWithIdentifier(identifier) as? MKPinAnnotationView {
-                dequedView.annotation = annotation
-                view = dequedView
-            }else{
-                
-                view = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-                view.canShowCallout = true
-                view.calloutOffset = CGPoint(x: -5, y: 5)
-                view.rightCalloutAccessoryView = UIButton(type: .DetailDisclosure)
-            }
-            
-            return view
+        if anView == nil {
+            anView = MKAnnotationView(annotation: annotation, reuseIdentifier: annotationReuseId)
+        } else {
+            anView!.annotation = annotation
         }
         
-        return nil
+        if let anView = anView {
+        anView.image = UIImage(named: "annotationPin")
+        anView.backgroundColor = UIColor.clearColor()
+        anView.canShowCallout = true
+        anView.rightCalloutAccessoryView = UIButton(type: .DetailDisclosure) as UIView
+        }
+        return anView!
     }
-    
-    
+
     
 }
+

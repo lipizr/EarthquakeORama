@@ -47,8 +47,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         
-        
-//        print("from vdl\(Infoarray)")
+
         
         //Step 3: Set Initial Location
         let initialLocation = CLLocation(latitude: 37.7833, longitude: -122.4167)
@@ -69,22 +68,28 @@ class ViewController: UIViewController {
         
         for item in Infoarray {
             
+            let locationName = item["properties"]!!["place"] as? String
+            let subtitle = item["properties"]!!["mag"] as? Int
+            
             if let lat = item["geometry"]!!["coordinates"]!![1] as? CLLocationDegrees {
                 if let long = item["geometry"]!!["coordinates"]!![0] as? CLLocationDegrees {
                     print("lat: \(lat)")
                     print("long: \(long)")
-                    //loop through the lats and longs and add annotation to map.
-                    let annotation = Annotation(locationName: "Bay Area", coordinates: CLLocationCoordinate2D(latitude: lat , longitude: long),title: "Bay Area State Park", desc: "this is a description")
+                    //loop through the lats and longs and add annotation to map. MAGNITUDE IS NOT WORKING *******
+                    let annotation = Annotation(magnitude: subtitle!, coordinates: CLLocationCoordinate2D(latitude: lat , longitude: long),title: locationName!, desc: "this is a description")
                     // Add the annotation to the map.
                     mapView.addAnnotation(annotation)
+                    
                 }
             }
         }
         
         print(Infoarray)
-
+        
+        
         
     }
+    
     
     // This method centers the map on the initial location
     func centerMapOnLocation(location:CLLocation) {
@@ -99,20 +104,28 @@ class ViewController: UIViewController {
     
     @IBAction func listViewTapped(sender: AnyObject) {
         
-        switch toggleState {
-            
-        case 0: self.containerView.hidden = true 
-                toggleState = 1
-            
-        case 1: self.containerView.hidden = false
-                toggleState = 0
-            
-        default: toggleState = 0
         
-        }
+        
+       // let tableVC = self.storyboard?.instantiateViewControllerWithIdentifier("InformationTableView") as? InformationTableView
+        
+//        switch toggleState {
+//            
+//        case 0: self.presentViewController(tableVC!, animated: true, completion: nil)
+//                self.modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext
+//        
+//                toggleState = 1
+//            
+//        case 1: dismissViewControllerAnimated(true, completion: nil)
+//                toggleState = 0
+//            
+//        default: toggleState = 0
+//        
+//        }
+        
+        dismissViewControllerAnimated(true, completion: nil)
         
        
-        UIModalPresentationStyle.OverCurrentContext
+        
         
     }
 }
