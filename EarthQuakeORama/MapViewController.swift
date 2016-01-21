@@ -77,7 +77,6 @@ class ViewController: UIViewController {
         
     }
     
-    
     //Method from completion handler in API
     func saveInfoArray(dataArray: NSMutableArray) {
         Infoarray = dataArray
