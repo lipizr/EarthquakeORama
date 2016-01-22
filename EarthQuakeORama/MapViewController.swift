@@ -35,6 +35,9 @@ class ViewController: UIViewController {
         }
     
     }
+    override func viewWillAppear(animated: Bool) {
+        self.navigationItem.title = "EarthQuake-O-Rama"
+    }
    
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -81,7 +84,24 @@ class ViewController: UIViewController {
     }
     
     func mapView(mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
-        performSegueWithIdentifier("toDetail", sender: self)
+        
+        //define a var to store annotation inside of annotation view
+        let selectedAnnotation = view.annotation
+        //loop thru the annotationArray to match the annotation
+        for annot in annotationsObjectsArray{
+            
+            if annot.title == selectedAnnotation!.title! {
+            
+                //break the loop and send, and sender is going to be annot I found
+                performSegueWithIdentifier("toDetail", sender: annot)
+                break
+                
+            
+            }
+            
+        }
+        
+        
     }
     
     //Method from completion handler in API
@@ -127,7 +147,10 @@ class ViewController: UIViewController {
         
         if segue.identifier == "toDetail" {
             let detSeg = segue.destinationViewController as? DetailViewController
-            detSeg?.annotationArray = annotationsObjectsArray
+            //send in sender as an annotation object and it should work.
+            detSeg?.annotationObject = sender as? Annotation
+            
+            self.navigationItem.title = "Back"
             
             
         }

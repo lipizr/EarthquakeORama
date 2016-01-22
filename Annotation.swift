@@ -14,7 +14,7 @@ class Annotation: NSObject, MKAnnotation {
     
     let magnitude: Double?
     let coordinates: CLLocationCoordinate2D
-    let title: String?
+    var title: String?
     let desc:String?
     
     
