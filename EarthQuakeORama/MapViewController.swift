@@ -108,10 +108,11 @@ class ViewController: UIViewController {
         print(Infoarray)
        
         for item in Infoarray {
+            
             let locationName = item["properties"]!!["place"] as? String
             let subtitle = item["properties"]!!["mag"] as? Double
             let time = item["properties"]!!["time"] as? NSTimeInterval
-            
+            // Date Parsing.
             let timeFormatter = NSDateFormatter()
             let dateFormatter = NSDateFormatter()
             timeFormatter.dateFormat = "h:mm a"
@@ -160,7 +161,7 @@ class ViewController: UIViewController {
             //send in sender as an annotation object and it should work.
             detSeg?.annotationObject = sender as? Annotation
             
-            self.navigationItem.title = "Back"
+            self.navigationItem.title = ""
             
             
         }

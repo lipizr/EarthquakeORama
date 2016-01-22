@@ -9,6 +9,7 @@
 import Foundation
 import MapKit
 
+// This class extends MapViewController***
 extension ViewController: MKMapViewDelegate {
     
     // /this is the view that pop up when you touch the annotation
