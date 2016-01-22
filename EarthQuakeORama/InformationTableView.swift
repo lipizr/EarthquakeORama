@@ -53,6 +53,9 @@ class InformationTableView: UIViewController, UITableViewDelegate, UITableViewDa
 
         cell.locationLabel?.text = annotationsArray[indexPath.row].title!
         cell.magLabel?.text = "MAG: \(annotationsArray[indexPath.row].magnitude!)"
+        cell.timeLabel.text = annotationsArray[indexPath.row].time
+        //TODO: FIX DATE TIME.
+        cell.dateLabel.text = annotationsArray[indexPath.row].date
         cell.backgroundColor = UIColor.clearColor()
         cell.accessoryType = .DisclosureIndicator
         return cell

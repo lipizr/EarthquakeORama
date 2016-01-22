@@ -10,13 +10,13 @@ import UIKit
 
 class DetailViewController: UIViewController {
 
-     var annotationArray = [Annotation]()
-    var annotationObject: Annotation?
+    
+    var annotationObject: Annotation!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print(annotationObject?.title)
+        print(annotationObject!.title)
 
       
     }

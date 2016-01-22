@@ -95,30 +95,39 @@ class ViewController: UIViewController {
                 //break the loop and send, and sender is going to be annot I found
                 performSegueWithIdentifier("toDetail", sender: annot)
                 break
-                
             
             }
             
         }
         
-        
     }
     
-    //Method from completion handler in API
+    // Parse JsonReturn info here, and then call the method in VDL
     func saveInfoArray(dataArray: NSMutableArray) {
         Infoarray = dataArray
+        print(Infoarray)
+       
         for item in Infoarray {
             let locationName = item["properties"]!!["place"] as? String
             let subtitle = item["properties"]!!["mag"] as? Double
+            let time = item["properties"]!!["time"] as? NSTimeInterval
+            
+            let timeFormatter = NSDateFormatter()
+            let dateFormatter = NSDateFormatter()
+            timeFormatter.dateFormat = "h:mm a"
+            dateFormatter.dateStyle = .ShortStyle
+            let dateTime = NSDate(timeIntervalSince1970: time!) as NSDate
+            let stringTime = timeFormatter.stringFromDate(dateTime)
+            let stringDate = dateFormatter.stringFromDate(dateTime)
+            
             
             if let lat = item["geometry"]!!["coordinates"]!![1] as? CLLocationDegrees {
                 if let long = item["geometry"]!!["coordinates"]!![0] as? CLLocationDegrees {
-                    print("lat: \(lat)")
-                    print("long: \(long)")
                     
-                    //loop through the lats and longs and add annotation to map. MAGNITUDE IS NOT WORKING *******
-                    let annotation = Annotation(magnitude: subtitle!, coordinates: CLLocationCoordinate2D(latitude: lat , longitude: long),title: locationName!, desc: "this is a description")
+                    let annotation = Annotation(magnitude: subtitle!, coordinates: CLLocationCoordinate2D(latitude: lat , longitude: long),title: locationName!, desc: "this is a description", time: stringTime, date: stringDate)
                     
+                    print("\(stringTime) and \(stringDate)")
+                    // Perform a loop and append object to annotationsArray. This array gets sent to the appropriate classes in line 138-152
                     annotationsObjectsArray.append(annotation)
                     
                     // Add the annotation to the map. Update annotations to map on MAIN THREAD
@@ -136,12 +145,13 @@ class ViewController: UIViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
+        
+        /*In order to segue in a more effficient way, all segues are done through the presenting view controller (this VC). i.e: In InformationTableView in didSelect, "mapViewController.performSegueWithIdentifier("toDetail", sender: self.annotationsArray[indexPath.row])"  */
         if segue.identifier == "toTableView"{
             
             let seg = segue.destinationViewController as? InformationTableView
             // Send in all annotations currenty on map as an array to destination.
             seg?.annotationsArray = annotationsObjectsArray
-
  
         }
         

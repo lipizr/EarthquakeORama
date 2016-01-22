@@ -16,23 +16,17 @@ class Annotation: NSObject, MKAnnotation {
     let coordinates: CLLocationCoordinate2D
     var title: String?
     let desc:String?
+    let time: String?
+    let date: String?
     
-    
-    
-    //let date: NSDate?
-    //let time: NSDate?
-    
-    init(magnitude: Double,coordinates: CLLocationCoordinate2D, title: String ,desc: String ) {
+    init(magnitude: Double,coordinates: CLLocationCoordinate2D, title: String ,desc: String, time: String, date: String ) {
         self.magnitude = magnitude
         self.coordinates = coordinates
         self.title = title
         self.desc = desc
+        self.time = time
+        self.date = date
         
-        
-        
-        
-        //self.date = date
-        //self.time = time
         
         super.init()
     }
@@ -40,6 +34,7 @@ class Annotation: NSObject, MKAnnotation {
     var subTitle : Double {
         return magnitude!
     }
+    
     
     // Since the class conformas to MKAnnotation you must return a CLLocation Object
     var coordinate:CLLocationCoordinate2D {
