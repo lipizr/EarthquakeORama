@@ -11,8 +11,10 @@ import MapKit
 
 class InformationTableView: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    
-    var annotationsArray = [Annotation]()
+    @IBAction func tapGestureTapped(sender: AnyObject) {
+    self.dismissViewControllerAnimated(true, completion: nil)
+    }
+       var annotationsArray = [Annotation]()
     @IBOutlet var tableView: UITableView!
     @IBAction func dismissView(sender: AnyObject) {
     self.dismissViewControllerAnimated(true, completion: nil)
