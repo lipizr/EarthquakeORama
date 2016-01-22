@@ -15,10 +15,10 @@ import MapKit
 class ViewController: UIViewController {
   
     let manager = CLLocationManager()
-    
-    
     var selectedMapIndex = 0
-      var Infoarray = NSMutableArray()
+    var Infoarray = NSMutableArray()
+    var annotationsObjectsArray = [Annotation]()
+    
     //Step 2: Create an outlet for your map
     @IBOutlet var mapView: MKMapView!
     
@@ -48,8 +48,6 @@ class ViewController: UIViewController {
         mapView.delegate = self
         mapView.showsUserLocation = true
         
-        API.getEarthquakeInformation(saveInfoArray)
-        
         // Request Permission to use location.
         if CLLocationManager.locationServicesEnabled(){
             
@@ -71,10 +69,19 @@ class ViewController: UIViewController {
         }
     }
     
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        API.getEarthquakeInformation(saveInfoArray)
+    }
+    
     @IBAction func locationTapped(sender: AnyObject) {
         
        centerMapOnLocation(mapView.userLocation.location!)
         
+    }
+    
+    func mapView(mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        performSegueWithIdentifier("toDetail", sender: self)
     }
     
     //Method from completion handler in API
@@ -82,27 +89,48 @@ class ViewController: UIViewController {
         Infoarray = dataArray
         for item in Infoarray {
             let locationName = item["properties"]!!["place"] as? String
-            let subtitle = item["properties"]!!["mag"] as? Int
+            let subtitle = item["properties"]!!["mag"] as? Double
             
             if let lat = item["geometry"]!!["coordinates"]!![1] as? CLLocationDegrees {
                 if let long = item["geometry"]!!["coordinates"]!![0] as? CLLocationDegrees {
                     print("lat: \(lat)")
                     print("long: \(long)")
+                    
                     //loop through the lats and longs and add annotation to map. MAGNITUDE IS NOT WORKING *******
                     let annotation = Annotation(magnitude: subtitle!, coordinates: CLLocationCoordinate2D(latitude: lat , longitude: long),title: locationName!, desc: "this is a description")
-                    // Add the annotation to the map.
-                    mapView.addAnnotation(annotation)
+                    
+                    annotationsObjectsArray.append(annotation)
+                    
+                    // Add the annotation to the map. Update annotations to map on MAIN THREAD
+                    dispatch_async(dispatch_get_main_queue()) {
+                       self.mapView.addAnnotation(annotation)
+                    }
                     
                 }
             }
         }
         
+       
+        
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let seg = segue.destinationViewController as? InformationTableView
-        seg?.tableViewDataArray = Infoarray
         
+        if segue.identifier == "toTableView"{
+            
+            let seg = segue.destinationViewController as? InformationTableView
+            // Send in all annotations currenty on map as an array to destination.
+            seg?.annotationsArray = annotationsObjectsArray
+
+ 
+        }
+        
+        if segue.identifier == "toDetail" {
+            let detSeg = segue.destinationViewController as? DetailViewController
+            detSeg?.annotationArray = annotationsObjectsArray
+            
+            
+        }
     }
     
     // This method centers the map on the initial location

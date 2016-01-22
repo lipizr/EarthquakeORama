@@ -12,7 +12,7 @@ import MapKit
 class Annotation: NSObject, MKAnnotation {
     
     
-    let magnitude: Int?
+    let magnitude: Double?
     let coordinates: CLLocationCoordinate2D
     let title: String?
     let desc:String?
@@ -22,7 +22,7 @@ class Annotation: NSObject, MKAnnotation {
     //let date: NSDate?
     //let time: NSDate?
     
-    init(magnitude: Int,coordinates: CLLocationCoordinate2D, title: String ,desc: String ) {
+    init(magnitude: Double,coordinates: CLLocationCoordinate2D, title: String ,desc: String ) {
         self.magnitude = magnitude
         self.coordinates = coordinates
         self.title = title
@@ -37,7 +37,7 @@ class Annotation: NSObject, MKAnnotation {
         super.init()
     }
     
-    var subTitle : Int {
+    var subTitle : Double {
         return magnitude!
     }
     

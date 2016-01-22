@@ -7,13 +7,13 @@
 //
 
 import UIKit
+import MapKit
 
 class InformationTableView: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-     var tableViewDataArray = NSMutableArray()
     
+    var annotationsArray = [Annotation]()
     @IBOutlet var tableView: UITableView!
-   
     @IBAction func dismissView(sender: AnyObject) {
     self.dismissViewControllerAnimated(true, completion: nil)
     
@@ -29,29 +29,38 @@ class InformationTableView: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tableViewDataArray.count
-        //really want to return the array.count, when i manage to get it over.
+        return annotationsArray.count
+       
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        let mapViewController = (self.presentingViewController as! UINavigationController).viewControllers[0]
+        
+        self.dismissViewControllerAnimated(true) {
+
+            mapViewController.performSegueWithIdentifier("toDetail", sender: self.annotationsArray[indexPath.row])
+        }
+        
+        
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let titleArray = NSMutableArray();
+       
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("infoTableCellReuse") as? InformationTVCell
-        for item in tableViewDataArray {
-            
-            if let places = item["properties"]!!["place"] as! NSString? {
-                titleArray.addObject(places)
-                
-            }
-            
-        }
-        
-        cell?.locationLabel?.text = titleArray[indexPath.row] as? String
-        cell?.backgroundColor = UIColor.clearColor()
-        cell?.accessoryType = .DisclosureIndicator
-        return cell!
+        let cell = tableView.dequeueReusableCellWithIdentifier("infoTableCellReuse") as! InformationTVCell
+
+        cell.locationLabel?.text = annotationsArray[indexPath.row].title!
+        cell.magLabel?.text = "MAG: \(annotationsArray[indexPath.row].magnitude!)"
+        cell.backgroundColor = UIColor.clearColor()
+        cell.accessoryType = .DisclosureIndicator
+        return cell
     }
 
+    
+    func unwindSegue(storyboard: UIStoryboard) {
+        
+    }
    
 }

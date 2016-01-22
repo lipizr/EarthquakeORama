@@ -19,6 +19,7 @@
 		023C6CB31C50421A002F513C /* InformationTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023C6CB21C50421A002F513C /* InformationTVCell.swift */; };
 		023C6CD91C5142D7002F513C /* OptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023C6CD81C5142D7002F513C /* OptionsViewController.swift */; };
 		023C6CDB1C516CB3002F513C /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 023C6CDA1C516CB3002F513C /* CoreLocation.framework */; };
+		09BD097B1C51A39C00A398B0 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BD097A1C51A39C00A398B0 /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		023C6CB21C50421A002F513C /* InformationTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InformationTVCell.swift; sourceTree = "<group>"; };
 		023C6CD81C5142D7002F513C /* OptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsViewController.swift; sourceTree = "<group>"; };
 		023C6CDA1C516CB3002F513C /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		09BD097A1C51A39C00A398B0 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +116,7 @@
 				023C6C9A1C4E7C49002F513C /* MapViewController.swift */,
 				023C6CAC1C4EB6DC002F513C /* MapViewExtension.swift */,
 				023C6CD81C5142D7002F513C /* OptionsViewController.swift */,
+				09BD097A1C51A39C00A398B0 /* DetailViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -159,6 +162,7 @@
 				TargetAttributes = {
 					023C6C941C4E7C49002F513C = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = GV377BJ66Q;
 					};
 				};
 			};
@@ -198,6 +202,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09BD097B1C51A39C00A398B0 /* DetailViewController.swift in Sources */,
 				023C6CD91C5142D7002F513C /* OptionsViewController.swift in Sources */,
 				023C6C9B1C4E7C49002F513C /* MapViewController.swift in Sources */,
 				023C6C991C4E7C49002F513C /* AppDelegate.swift in Sources */,
@@ -318,7 +323,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = EarthQuakeORama/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.-EarthQuakeORama.WillowTest.com.EarthQuakeORama";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -329,7 +336,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = EarthQuakeORama/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.-EarthQuakeORama.WillowTest.com.EarthQuakeORama";
 				PRODUCT_NAME = "$(TARGET_NAME)";
