@@ -23,6 +23,8 @@ class InformationTableView: UIViewController, UITableViewDelegate, UITableViewDa
         
         super.viewDidLoad()
         tableView.backgroundColor = UIColor.clearColor()
+        tableView.layer.borderColor = UIColor.lightGrayColor().CGColor
+        tableView.layer.borderWidth = 0.5
         
         
         
