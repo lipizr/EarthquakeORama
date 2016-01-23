@@ -126,8 +126,8 @@ class ViewController: UIViewController {
             let dateFormatter = NSDateFormatter()
             timeFormatter.dateFormat = "h:mm a"
             dateFormatter.dateStyle = .ShortStyle
-            let dateTime = NSDate(timeIntervalSince1970: time!) as NSDate
-            let updateTime = NSDate(timeIntervalSince1970: updatedTime!) as NSDate
+            let dateTime = NSDate(timeIntervalSinceNow: time!) as NSDate
+            let updateTime = NSDate(timeIntervalSinceNow: updatedTime!) as NSDate
             let stringTime = timeFormatter.stringFromDate(dateTime)
             let stringDate = dateFormatter.stringFromDate(dateTime)
             let stringUpdated = timeFormatter.stringFromDate(updateTime)

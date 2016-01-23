@@ -31,7 +31,7 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem width="7" style="plain" systemItem="flexibleSpace" id="BvK-sM-WG1"/>
-                                    <barButtonItem title="List" width="73" id="vSs-Lp-u38">
+                                    <barButtonItem systemItem="bookmarks" id="vSs-Lp-u38">
                                         <connections>
                                             <action selector="listViewTapped:" destination="BYZ-38-t0r" id="sYN-Ks-YwO"/>
                                             <segue destination="Opd-Jk-WSI" kind="presentation" identifier="toTableView" modalPresentationStyle="overCurrentContext" id="paX-CW-ZFy"/>
