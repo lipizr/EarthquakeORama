@@ -24,21 +24,21 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Ir-7w-DGf">
                                 <rect key="frame" x="0.0" y="556" width="600" height="44"/>
                                 <items>
-                                    <barButtonItem title="Map" id="gV8-g5-X0M">
+                                    <barButtonItem image="information" style="plain" id="gV8-g5-X0M">
                                         <connections>
                                             <action selector="MapButtonPressed:" destination="BYZ-38-t0r" id="iem-EC-6Ev"/>
                                             <segue destination="b9h-A8-ju9" kind="presentation" identifier="toSegControlVC" modalPresentationStyle="overCurrentContext" id="Il5-rJ-I3J"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem width="7" style="plain" systemItem="flexibleSpace" id="BvK-sM-WG1"/>
-                                    <barButtonItem systemItem="bookmarks" id="vSs-Lp-u38">
+                                    <barButtonItem image="list2" id="vSs-Lp-u38">
                                         <connections>
                                             <action selector="listViewTapped:" destination="BYZ-38-t0r" id="sYN-Ks-YwO"/>
                                             <segue destination="Opd-Jk-WSI" kind="presentation" identifier="toTableView" modalPresentationStyle="overCurrentContext" id="paX-CW-ZFy"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="APV-Cn-S8Z"/>
-                                    <barButtonItem title="Location" id="sJ2-rL-ZwE">
+                                    <barButtonItem image="location" id="sJ2-rL-ZwE">
                                         <connections>
                                             <action selector="locationTapped:" destination="BYZ-38-t0r" id="lcW-tR-9GO"/>
                                         </connections>
@@ -534,6 +534,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="information" width="40" height="40"/>
+        <image name="list2" width="40" height="40"/>
+        <image name="location" width="40" height="40"/>
         <image name="redMarker" width="256" height="256"/>
     </resources>
 </document>
