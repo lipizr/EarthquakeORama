@@ -81,9 +81,17 @@
                                     <constraint firstItem="Qtq-X7-bsD" firstAttribute="centerY" secondItem="9cH-90-i4b" secondAttribute="centerY" id="zPY-Yy-GzX"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fke-Xy-Xub">
+                                <rect key="frame" x="10" y="521" width="25.5" height="11"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="9"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Fke-Xy-Xub" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="10" id="Djx-X0-LmL"/>
+                            <constraint firstItem="8Ir-7w-DGf" firstAttribute="top" secondItem="Fke-Xy-Xub" secondAttribute="bottom" constant="24" id="EI4-vI-RRz"/>
                             <constraint firstItem="9cH-90-i4b" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="FMi-5v-yxN"/>
                             <constraint firstAttribute="trailing" secondItem="qbJ-p3-bzj" secondAttribute="trailing" id="HOd-mv-ofv"/>
                             <constraint firstItem="8Ir-7w-DGf" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="JYw-Qf-ves"/>
@@ -103,11 +111,18 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" title="EarthQuake-O-Rama" id="ESH-sR-v7n"/>
+                    <navigationItem key="navigationItem" title="EarthQuake-O-Rama" id="ESH-sR-v7n">
+                        <barButtonItem key="leftBarButtonItem" title="Item" systemItem="refresh" id="EhQ-mW-7tw">
+                            <connections>
+                                <action selector="refreshTapped:" destination="BYZ-38-t0r" id="Xqe-Lh-mB5"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <nil key="simulatedStatusBarMetrics"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="mapView" destination="qbJ-p3-bzj" id="dvp-MP-Rdz"/>
+                        <outlet property="updatedLabel" destination="Fke-Xy-Xub" id="xaO-dK-ikV"/>
                         <segue destination="sav-bj-XJR" kind="show" identifier="toDetail" id="obM-ZB-d4a"/>
                     </connections>
                 </viewController>

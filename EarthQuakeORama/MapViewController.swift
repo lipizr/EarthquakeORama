@@ -14,6 +14,7 @@ import MapKit
 
 class ViewController: UIViewController {
   
+    @IBOutlet var updatedLabel: UILabel!
     let manager = CLLocationManager()
     var selectedMapIndex = 0
     var Infoarray = NSMutableArray()
@@ -62,21 +63,29 @@ class ViewController: UIViewController {
             manager.requestWhenInUseAuthorization()
         }
         
+        
         func locationManager(manager: CLLocationManager!,didChangeAuthorizationStatus status: CLAuthorizationStatus){
             
             if status == .AuthorizedAlways || status == .AuthorizedWhenInUse {
                 manager.startUpdatingLocation()
                 
-                
             }
+            
         }
     }
-    
+    //call the api after the viewDidAppear.
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         API.getEarthquakeInformation(saveInfoArray)
+        
     }
+    // refreshes the Api call
+    @IBAction func refreshTapped(sender: AnyObject) {
+    API.getEarthquakeInformation(saveInfoArray)
+    mapView.reloadInputViews()
     
+    }
+    //Centers View to your current location
     @IBAction func locationTapped(sender: AnyObject) {
         
        centerMapOnLocation(mapView.userLocation.location!)
@@ -105,40 +114,46 @@ class ViewController: UIViewController {
     // Parse JsonReturn info here, and then call the method in VDL
     func saveInfoArray(dataArray: NSMutableArray) {
         Infoarray = dataArray
-        print(Infoarray)
        
-        for item in Infoarray {
+       for item in Infoarray {
             
             let locationName = item["properties"]!!["place"] as? String
             let subtitle = item["properties"]!!["mag"] as? Double
             let time = item["properties"]!!["time"] as? NSTimeInterval
+            let updatedTime = item["properties"]!!["updated"] as? NSTimeInterval
             // Date Parsing.
             let timeFormatter = NSDateFormatter()
             let dateFormatter = NSDateFormatter()
             timeFormatter.dateFormat = "h:mm a"
             dateFormatter.dateStyle = .ShortStyle
             let dateTime = NSDate(timeIntervalSince1970: time!) as NSDate
+            let updateTime = NSDate(timeIntervalSince1970: updatedTime!) as NSDate
             let stringTime = timeFormatter.stringFromDate(dateTime)
             let stringDate = dateFormatter.stringFromDate(dateTime)
-            
+            let stringUpdated = timeFormatter.stringFromDate(updateTime)
             
             if let lat = item["geometry"]!!["coordinates"]!![1] as? CLLocationDegrees {
                 if let long = item["geometry"]!!["coordinates"]!![0] as? CLLocationDegrees {
                     
-                    let annotation = Annotation(magnitude: subtitle!, coordinates: CLLocationCoordinate2D(latitude: lat , longitude: long),title: locationName!, desc: "this is a description", time: stringTime, date: stringDate)
+                    let annotation = Annotation(magnitude: subtitle!, coordinates: CLLocationCoordinate2D(latitude: lat , longitude: long),title: locationName!, desc: "this is a description", time: stringTime, date: stringDate, updatedTime: stringUpdated)
                     
-                    print("\(stringTime) and \(stringDate)")
                     // Perform a loop and append object to annotationsArray. This array gets sent to the appropriate classes in line 138-152
                     annotationsObjectsArray.append(annotation)
+                    
                     
                     // Add the annotation to the map. Update annotations to map on MAIN THREAD
                     dispatch_async(dispatch_get_main_queue()) {
                        self.mapView.addAnnotation(annotation)
+                        
                     }
                     
                 }
             }
+        updatedLabel.text = "Updated At: \(stringUpdated)"
+        
         }
+        
+
         
     }
     
@@ -158,9 +173,7 @@ class ViewController: UIViewController {
             let detSeg = segue.destinationViewController as? DetailViewController
             //send in sender as an annotation object and it should work.
             detSeg?.annotationObject = sender as? Annotation
-            
             self.navigationItem.title = ""
-            
             
         }
     }
@@ -170,7 +183,6 @@ class ViewController: UIViewController {
         
         // This sets radius distance. I set it to 10K km.
         let regionRadius : CLLocationDistance = 500000
-        
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate, regionRadius * 2.0, regionRadius * 2.0)
         // setRegion tells the mapview to display the region.
         mapView.setRegion(coordinateRegion, animated: true)

@@ -20,9 +20,6 @@ class DetailViewController: UIViewController {
     @IBOutlet var magImage: UIImageView!
     var annotationObject: Annotation!
     
-    //move this to object
-//    let descriptionArray: [String] = ["Earthquakes like this with a magnitude of about 2.0 or less are usually called microearthquakes; they are not commonly felt by people and are generally recorded only on local seismographs.", "Felt indoors by many, outdoors by few during the day. At night, some awakened. Dishes, windows, doors disturbed; walls make cracking sound. Sensation like heavy truck striking building. Standing motor cars rocked noticeably.", "Damage negligible in buildings of good design and construction; slight to moderate in well-built ordinary structures; considerable damage in poorly built or badly designed structures; some chimneys broken."]
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         print(annotationObject!.title)
@@ -34,7 +31,6 @@ class DetailViewController: UIViewController {
         navigationItem.title = annotationObject!.title
         magLabel.text = "Magnitude: \(annotationObject.magnitude!)"
         timeLabel.text = annotationObject.time
-        
         bottomViewHolder.layer.borderWidth = 0.5
         bottomViewHolder.layer.borderColor = UIColor.blackColor().CGColor
         

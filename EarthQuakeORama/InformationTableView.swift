@@ -11,13 +11,13 @@ import MapKit
 
 class InformationTableView: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    @IBAction func tapGestureTapped(sender: AnyObject) {
-    self.dismissViewControllerAnimated(true, completion: nil)
-    }
-       var annotationsArray = [Annotation]()
-    @IBOutlet var tableView: UITableView!
-    @IBAction func dismissView(sender: AnyObject) {
-    self.dismissViewControllerAnimated(true, completion: nil)
+        @IBAction func tapGestureTapped(sender: AnyObject) {
+            self.dismissViewControllerAnimated(true, completion: nil)
+        }
+        var annotationsArray = [Annotation]()
+        @IBOutlet var tableView: UITableView!
+        @IBAction func dismissView(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: nil)
     
     }
     
@@ -28,8 +28,6 @@ class InformationTableView: UIViewController, UITableViewDelegate, UITableViewDa
         tableView.layer.borderColor = UIColor.lightGrayColor().CGColor
         tableView.layer.borderWidth = 0.5
         
-        
-        
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -38,23 +36,16 @@ class InformationTableView: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
-        let mapViewController = (self.presentingViewController as! UINavigationController).viewControllers[0]
-        
-        self.dismissViewControllerAnimated(true) {
-
+            let mapViewController = (self.presentingViewController as! UINavigationController).viewControllers[0]
+            self.dismissViewControllerAnimated(true) {
             mapViewController.performSegueWithIdentifier("toDetail", sender: self.annotationsArray[indexPath.row])
         }
-        
         
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-       
-        
         let cell = tableView.dequeueReusableCellWithIdentifier("infoTableCellReuse") as! InformationTVCell
-
         cell.locationLabel?.text = annotationsArray[indexPath.row].title!
         cell.magLabel?.text = "MAG: \(annotationsArray[indexPath.row].magnitude!)"
         cell.timeLabel.text = annotationsArray[indexPath.row].time
