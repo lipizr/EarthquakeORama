@@ -1,25 +1,23 @@
 //
-//  OptionsViewController.swift
+//  MailViewController.swift
 //  EarthQuakeORama
 //
-//  Created by Dimas Lipiz on 1/21/16.
+//  Created by Dimas retina mBP on 1/24/16.
 //  Copyright © 2016 Dimas Lipiz. All rights reserved.
 //
 
 import UIKit
 import MessageUI
 
-class OptionsViewController: UIViewController,MFMailComposeViewControllerDelegate {
-    
+class MailViewController: UIViewController,MFMailComposeViewControllerDelegate {
+
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
 
-    @IBAction func dismissVC(sender: AnyObject) {
-        dismissViewControllerAnimated(true, completion: nil)
-    
-        
+
     }
+    
+    
     
     @IBAction func sendEmailButtonTapped(sender: AnyObject) {
         let mailComposeViewController = configuredMailComposeViewController()
@@ -34,7 +32,7 @@ class OptionsViewController: UIViewController,MFMailComposeViewControllerDelegat
         let mailComposerVC = MFMailComposeViewController()
         mailComposerVC.mailComposeDelegate = self // Extremely important to set the --mailComposeDelegate-- property, NOT the --delegate-- property
         
-        mailComposerVC.setToRecipients(["someone@somewhere.com"])
+        mailComposerVC.setToRecipients(["lipizdesigns@gmail.com"])
         mailComposerVC.setSubject("Sending you an in-app e-mail...")
         mailComposerVC.setMessageBody("Sending e-mail in-app is not so bad!", isHTML: false)
         
@@ -50,12 +48,6 @@ class OptionsViewController: UIViewController,MFMailComposeViewControllerDelegat
     func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?) {
         controller.dismissViewControllerAnimated(true, completion: nil)
     }
-      
 
+   
 }
-
-
-
-
-
-

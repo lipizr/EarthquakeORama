@@ -18,7 +18,7 @@ class API: NSObject {
         // check for network connection and send alert.
         if NetworkReachability.isConnectedToNetwork() == true {
             let session = NSURLSession.sharedSession()
-            let urlString = "http://ehp2-earthquake.wr.usgs.gov/fdsnws/event/1/query?format=geojson&limit=25"
+            let urlString = "http://ehp2-earthquake.wr.usgs.gov/fdsnws/event/1/query?format=geojson&limit=60"
             let url = NSURL(string: urlString)!
             let request = NSURLRequest(URL: url)
             let task = session.dataTaskWithRequest(request){ data,response,downloadError in

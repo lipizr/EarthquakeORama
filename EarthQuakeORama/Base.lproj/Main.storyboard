@@ -300,6 +300,19 @@
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="KYl-Ok-04t">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="120"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uft-YJ-UCX">
+                                                    <rect key="frame" x="247" y="45" width="107" height="30"/>
+                                                    <state key="normal" title="Send Feedback"/>
+                                                    <connections>
+                                                        <action selector="sendEmailButtonTapped:" destination="b9h-A8-ju9" eventType="touchUpInside" id="8k2-6A-oLu"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="uft-YJ-UCX" firstAttribute="centerY" secondItem="KYl-Ok-04t" secondAttribute="centerY" id="8Cs-1J-KcZ"/>
+                                                <constraint firstItem="uft-YJ-UCX" firstAttribute="centerX" secondItem="KYl-Ok-04t" secondAttribute="centerX" id="EO4-S4-c3H"/>
+                                            </constraints>
                                         </view>
                                         <blurEffect style="extraLight"/>
                                     </visualEffectView>

@@ -117,8 +117,8 @@ class ViewController: UIViewController {
        
        for item in Infoarray {
             
-            let locationName = item["properties"]!!["place"] as? String
-            let subtitle = item["properties"]!!["mag"] as? Double
+            let locationName = item["properties"]!!["place"] as! String
+            let magnitude = item["properties"]!!["mag"] as? Double
             let time = item["properties"]!!["time"] as? NSTimeInterval
             let updatedTime = item["properties"]!!["updated"] as? NSTimeInterval
             // Date Parsing.
@@ -135,7 +135,7 @@ class ViewController: UIViewController {
             if let lat = item["geometry"]!!["coordinates"]!![1] as? CLLocationDegrees {
                 if let long = item["geometry"]!!["coordinates"]!![0] as? CLLocationDegrees {
                     
-                    let annotation = Annotation(magnitude: subtitle!, coordinates: CLLocationCoordinate2D(latitude: lat , longitude: long),title: locationName!, desc: "this is a description", time: stringTime, date: stringDate, updatedTime: stringUpdated)
+                    let annotation = Annotation(magnitude: magnitude!, coordinates: CLLocationCoordinate2D(latitude: lat , longitude: long),title: locationName, desc: "this is a description", time: stringTime, date: stringDate, updatedTime: stringUpdated)
                     
                     // Perform a loop and append object to annotationsArray. This array gets sent to the appropriate classes in line 138-152
                     annotationsObjectsArray.append(annotation)
