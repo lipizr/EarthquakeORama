@@ -302,17 +302,46 @@
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uft-YJ-UCX">
-                                                    <rect key="frame" x="247" y="45" width="107" height="30"/>
+                                                    <rect key="frame" x="30" y="45" width="540" height="30"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <state key="normal" title="Send Feedback"/>
                                                     <connections>
                                                         <action selector="sendEmailButtonTapped:" destination="b9h-A8-ju9" eventType="touchUpInside" id="8k2-6A-oLu"/>
                                                     </connections>
                                                 </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qcO-UP-tRt">
+                                                    <rect key="frame" x="30" y="80" width="540" height="30"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <state key="normal" title="About USGS"/>
+                                                    <connections>
+                                                        <action selector="aboutButtonTapped:" destination="b9h-A8-ju9" eventType="touchUpInside" id="kfz-YH-uie"/>
+                                                    </connections>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Extra Options" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="erH-9p-OFh">
+                                                    <rect key="frame" x="248" y="8.5" width="104" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="qcO-UP-tRt" firstAttribute="width" secondItem="uft-YJ-UCX" secondAttribute="width" id="3Fl-dC-jAX"/>
                                                 <constraint firstItem="uft-YJ-UCX" firstAttribute="centerY" secondItem="KYl-Ok-04t" secondAttribute="centerY" id="8Cs-1J-KcZ"/>
                                                 <constraint firstItem="uft-YJ-UCX" firstAttribute="centerX" secondItem="KYl-Ok-04t" secondAttribute="centerX" id="EO4-S4-c3H"/>
+                                                <constraint firstItem="erH-9p-OFh" firstAttribute="centerX" secondItem="KYl-Ok-04t" secondAttribute="centerX" id="HPg-jj-cLb"/>
+                                                <constraint firstItem="qcO-UP-tRt" firstAttribute="height" secondItem="uft-YJ-UCX" secondAttribute="height" id="Ksw-xk-WS8"/>
+                                                <constraint firstItem="uft-YJ-UCX" firstAttribute="width" secondItem="KYl-Ok-04t" secondAttribute="width" multiplier="0.9" id="ahV-Og-tWB"/>
+                                                <constraint firstItem="qcO-UP-tRt" firstAttribute="top" secondItem="uft-YJ-UCX" secondAttribute="bottom" constant="5" id="cMz-e2-049"/>
+                                                <constraint firstItem="erH-9p-OFh" firstAttribute="centerY" secondItem="KYl-Ok-04t" secondAttribute="centerY" id="tFw-K4-f4q"/>
+                                                <constraint firstItem="uft-YJ-UCX" firstAttribute="height" secondItem="KYl-Ok-04t" secondAttribute="height" multiplier="0.25" id="tuF-86-KWE"/>
+                                                <constraint firstItem="qcO-UP-tRt" firstAttribute="centerX" secondItem="uft-YJ-UCX" secondAttribute="centerX" id="xTH-fM-95L"/>
+                                                <constraint firstItem="uft-YJ-UCX" firstAttribute="top" secondItem="erH-9p-OFh" secondAttribute="bottom" constant="16" id="zw3-Ve-Tsq"/>
                                             </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="tFw-K4-f4q"/>
+                                                </mask>
+                                            </variation>
                                         </view>
                                         <blurEffect style="extraLight"/>
                                     </visualEffectView>
@@ -345,6 +374,10 @@
                             <constraint firstItem="KhF-iq-nAL" firstAttribute="leading" secondItem="EvA-RB-WE9" secondAttribute="leading" id="yWZ-LV-ycN"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="aboutUSGSButton" destination="qcO-UP-tRt" id="XdW-M2-oN3"/>
+                        <outlet property="sendFeedBackButton" destination="uft-YJ-UCX" id="zLa-y4-alM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Wv-1L-41Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

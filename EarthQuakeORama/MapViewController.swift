@@ -46,7 +46,7 @@ class ViewController: UIViewController {
         //Step 3: Set Initial Location
         let initialLocation = CLLocation(latitude: 37.7833, longitude: -122.4167)
         // This calls the helper method to zoom into the initialLocation.
-        centerMapOnLocation(initialLocation)
+        //centerMapOnLocation(initialLocation)
         
         //set the delegate of the map to equal self. (this class)
         mapView.delegate = self
