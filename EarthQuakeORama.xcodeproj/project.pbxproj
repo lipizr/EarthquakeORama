@@ -19,6 +19,7 @@
 		023C6CB31C50421A002F513C /* InformationTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023C6CB21C50421A002F513C /* InformationTVCell.swift */; };
 		023C6CD91C5142D7002F513C /* OptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023C6CD81C5142D7002F513C /* OptionsViewController.swift */; };
 		023C6CDB1C516CB3002F513C /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 023C6CDA1C516CB3002F513C /* CoreLocation.framework */; };
+		023C6CDE1C569F73002F513C /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023C6CDD1C569F73002F513C /* WebViewController.swift */; };
 		09BD097B1C51A39C00A398B0 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BD097A1C51A39C00A398B0 /* DetailViewController.swift */; };
 		09BD097D1C533DF900A398B0 /* NetworkReachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BD097C1C533DF900A398B0 /* NetworkReachability.swift */; };
 		09BD097F1C548E6600A398B0 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BD097E1C548E6600A398B0 /* UIColorExtension.swift */; };
@@ -39,6 +40,7 @@
 		023C6CB21C50421A002F513C /* InformationTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InformationTVCell.swift; sourceTree = "<group>"; };
 		023C6CD81C5142D7002F513C /* OptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsViewController.swift; sourceTree = "<group>"; };
 		023C6CDA1C516CB3002F513C /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		023C6CDD1C569F73002F513C /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		09BD097A1C51A39C00A398B0 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		09BD097C1C533DF900A398B0 /* NetworkReachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkReachability.swift; sourceTree = "<group>"; };
 		09BD097E1C548E6600A398B0 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 				023C6C9A1C4E7C49002F513C /* MapViewController.swift */,
 				023C6CD81C5142D7002F513C /* OptionsViewController.swift */,
 				09BD097A1C51A39C00A398B0 /* DetailViewController.swift */,
+				023C6CDD1C569F73002F513C /* WebViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -223,6 +226,7 @@
 				023C6CB31C50421A002F513C /* InformationTVCell.swift in Sources */,
 				023C6CB11C5018C3002F513C /* InformationTableView.swift in Sources */,
 				023C6CAB1C4EA0C3002F513C /* Annotation.swift in Sources */,
+				023C6CDE1C569F73002F513C /* WebViewController.swift in Sources */,
 				023C6CAD1C4EB6DC002F513C /* MapViewExtension.swift in Sources */,
 				09BD097F1C548E6600A398B0 /* UIColorExtension.swift in Sources */,
 				023C6CAF1C4EC74D002F513C /* API.swift in Sources */,

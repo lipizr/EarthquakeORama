@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="HfL-yh-ocj">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="HfL-yh-ocj">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
@@ -82,7 +82,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fke-Xy-Xub">
-                                <rect key="frame" x="10" y="521" width="25.5" height="11"/>
+                                <rect key="frame" x="10" y="521" width="26" height="11"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="9"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -129,6 +129,54 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2243" y="648"/>
+        </scene>
+        <!--Web View Controller-->
+        <scene sceneID="c5j-fX-x9w">
+            <objects>
+                <viewController id="z1s-49-IoG" customClass="WebViewController" customModule="EarthQuakeORama" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="AKu-8J-gtM"/>
+                        <viewControllerLayoutGuide type="bottom" id="Phx-PU-UA7"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="E3P-9C-Wf0">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5DO-DJ-avM">
+                                <rect key="frame" x="0.0" y="54" width="600" height="546"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                            </webView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QPm-Ay-Q9X">
+                                <rect key="frame" x="20" y="8" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="dismissWebView:" destination="z1s-49-IoG" eventType="touchUpInside" id="kWW-Yk-6vj"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="5DO-DJ-avM" firstAttribute="leading" secondItem="E3P-9C-Wf0" secondAttribute="leading" id="10S-SM-cFe"/>
+                            <constraint firstItem="5DO-DJ-avM" firstAttribute="top" secondItem="QPm-Ay-Q9X" secondAttribute="bottom" constant="16" id="HEP-tg-d4v"/>
+                            <constraint firstAttribute="trailing" secondItem="5DO-DJ-avM" secondAttribute="trailing" id="oc5-Vd-Xhq"/>
+                            <constraint firstItem="Phx-PU-UA7" firstAttribute="top" secondItem="5DO-DJ-avM" secondAttribute="bottom" id="sST-tx-wjE"/>
+                            <constraint firstItem="QPm-Ay-Q9X" firstAttribute="leading" secondItem="E3P-9C-Wf0" secondAttribute="leading" constant="20" id="trm-g7-Ywy"/>
+                            <constraint firstItem="QPm-Ay-Q9X" firstAttribute="top" secondItem="AKu-8J-gtM" secondAttribute="bottom" constant="8" id="uSa-X5-Gow"/>
+                            <constraint firstItem="5DO-DJ-avM" firstAttribute="top" secondItem="AKu-8J-gtM" secondAttribute="bottom" id="v90-wQ-Mxx"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="v90-wQ-Mxx"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="webView" destination="5DO-DJ-avM" id="emS-CD-tNu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NXf-gk-zLt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3674" y="-108"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="DCM-bZ-0t8">
@@ -216,7 +264,7 @@
                                         <rect key="frame" x="198" y="0.0" width="402" height="120"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="description Label" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f5A-ux-Ci1">
-                                                <rect key="frame" x="8" y="53" width="386" height="13.5"/>
+                                                <rect key="frame" x="8" y="53" width="386" height="14"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -278,7 +326,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JW9-j5-I9e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3647" y="648"/>
+            <point key="canvasLocation" x="3674" y="648"/>
         </scene>
         <!--Options View Controller-->
         <scene sceneID="Hbh-B7-qRP">
@@ -317,8 +365,8 @@
                                                         <action selector="aboutButtonTapped:" destination="b9h-A8-ju9" eventType="touchUpInside" id="kfz-YH-uie"/>
                                                     </connections>
                                                 </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Extra Options" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="erH-9p-OFh">
-                                                    <rect key="frame" x="248" y="8.5" width="104" height="20.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Extra Options" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="erH-9p-OFh">
+                                                    <rect key="frame" x="248" y="9" width="104" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -377,6 +425,7 @@
                     <connections>
                         <outlet property="aboutUSGSButton" destination="qcO-UP-tRt" id="XdW-M2-oN3"/>
                         <outlet property="sendFeedBackButton" destination="uft-YJ-UCX" id="zLa-y4-alM"/>
+                        <segue destination="z1s-49-IoG" kind="show" identifier="toWebView" id="bNk-H5-ecV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Wv-1L-41Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -432,7 +481,7 @@
                                         <rect key="frame" x="0.0" y="28" width="600" height="84"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1aY-hu-gx3" id="RpH-Ba-CxG">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="83.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="83"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aZo-v2-E16">
@@ -448,13 +497,13 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="date label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sJp-sR-ujM">
-                                                    <rect key="frame" x="8" y="56" width="47.5" height="12"/>
+                                                    <rect key="frame" x="8" y="56" width="48" height="12"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MAG" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xKP-iW-G0J">
-                                                    <rect key="frame" x="560" y="31" width="39.5" height="21.5"/>
+                                                    <rect key="frame" x="560" y="31" width="40" height="22"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <color key="textColor" red="0.90196078430000004" green="0.31372549020000001" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>

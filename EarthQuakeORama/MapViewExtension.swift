@@ -28,6 +28,7 @@ extension ViewController: MKMapViewDelegate {
         if annotation.isKindOfClass(MKUserLocation){
             return nil
         }else {
+            
             if let anView = anView {
                 
                 anView.image = UIImage(named: "annotationPin")
@@ -37,9 +38,8 @@ extension ViewController: MKMapViewDelegate {
                 //set up blue view to the left
                 let dynamicView = UIView(frame: CGRect(x: 40, y: 20, width: anView.frame.width * 2, height: anView.frame.height * 2))
                 let magLabel = UILabel(frame: CGRect(x: 15,y: 5,width: 40,height: 40))
-                //trying to get dynamic mag.
-                magLabel.text = ""
-                print(annotationsObjectsArray[19].magnitude)
+                let magIndex =  annotation as! Annotation
+                magLabel.text = "\(magIndex.magnitude!)"
                 magLabel.textColor = UIColor.whiteColor()
                 dynamicView.addSubview(magLabel)
                 dynamicView.backgroundColor = UIColor.appleBlue()

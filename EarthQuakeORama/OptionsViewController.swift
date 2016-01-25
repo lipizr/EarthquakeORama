@@ -46,9 +46,12 @@ class OptionsViewController: UIViewController,MFMailComposeViewControllerDelegat
         
     
     }
+    
     @IBAction func aboutButtonTapped(sender: AnyObject) {
     
-    UIApplication.sharedApplication().openURL(NSURL(string: "http://www.usgs.gov/aboutusgs/")!)
+        //do webview stuff here.
+        //UIApplication.sharedApplication().openURL(NSURL(string: "http://www.usgs.gov/aboutusgs/")!)
+        performSegueWithIdentifier("toWebView", sender: self)
        
     }
     
