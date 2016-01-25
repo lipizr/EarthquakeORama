@@ -9,9 +9,8 @@
 import UIKit
 import SystemConfiguration
 
-
-
 class API: NSObject {
+    
     
     static func getEarthquakeInformation(completionHandler: (informationArray: NSMutableArray) -> ())  {
         

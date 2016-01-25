@@ -36,13 +36,15 @@ extension ViewController: MKMapViewDelegate {
                 anView.canShowCallout = true
                 anView.rightCalloutAccessoryView = UIButton(type: .DetailDisclosure) as UIView
                 //set up blue view to the left
-                let dynamicView = UIView(frame: CGRect(x: 40, y: 20, width: anView.frame.width * 2, height: anView.frame.height * 2))
-                let magLabel = UILabel(frame: CGRect(x: 15,y: 5,width: 40,height: 40))
+                let dynamicView = UIView(frame: CGRectMake(20, 20, anView.frame.size.width * 2, anView.frame.size.height * 2.5  ))
+                let magLabel = UILabel(frame: CGRect(x: 10,y: 5,width: 40,height: 40))
                 let magIndex =  annotation as! Annotation
                 magLabel.text = "\(magIndex.magnitude!)"
                 magLabel.textColor = UIColor.whiteColor()
                 dynamicView.addSubview(magLabel)
                 dynamicView.backgroundColor = UIColor.appleBlue()
+                anView.leftCalloutAccessoryView?.backgroundColor = UIColor.appleBlue()
+                //anView.leftCalloutAccessoryView.
                 anView.leftCalloutAccessoryView = dynamicView
                                         }
             return anView!

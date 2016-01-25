@@ -14,6 +14,7 @@ import MapKit
 
 class ViewController: UIViewController {
   
+    @IBOutlet var activityInd: UIActivityIndicatorView!
     @IBOutlet var updatedLabel: UILabel!
     let manager = CLLocationManager()
     var selectedMapIndex = 0
@@ -43,10 +44,12 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //TODO:FIX LOADING INDICATOR
+        //activityInd.startAnimating()
+        activityInd.hidden = true
+        
         //Step 3: Set Initial Location
         let initialLocation = CLLocation(latitude: 37.7833, longitude: -122.4167)
-        // This calls the helper method to zoom into the initialLocation.
-        //centerMapOnLocation(initialLocation)
         
         //set the delegate of the map to equal self. (this class)
         mapView.delegate = self
@@ -63,7 +66,6 @@ class ViewController: UIViewController {
             manager.requestWhenInUseAuthorization()
         }
         
-        
         func locationManager(manager: CLLocationManager!,didChangeAuthorizationStatus status: CLAuthorizationStatus){
             
             if status == .AuthorizedAlways || status == .AuthorizedWhenInUse {
@@ -76,9 +78,11 @@ class ViewController: UIViewController {
     //call the api after the viewDidAppear.
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
+       
         API.getEarthquakeInformation(saveInfoArray)
         
     }
+    
     // refreshes the Api call
     @IBAction func refreshTapped(sender: AnyObject) {
     API.getEarthquakeInformation(saveInfoArray)
@@ -106,15 +110,13 @@ class ViewController: UIViewController {
                 break
             
             }
-            
         }
-        
     }
     
     // Parse JsonReturn info here, and then call the method in VDL
     func saveInfoArray(dataArray: NSMutableArray) {
         Infoarray = dataArray
-       
+        
        for item in Infoarray {
             
             let locationName = item["properties"]!!["place"] as! String
@@ -140,7 +142,6 @@ class ViewController: UIViewController {
                     // Perform a loop and append object to annotationsArray. This array gets sent to the appropriate classes in line 138-152
                     annotationsObjectsArray.append(annotation)
                     
-                    
                     // Add the annotation to the map. Update annotations to map on MAIN THREAD
                     dispatch_async(dispatch_get_main_queue()) {
                        self.mapView.addAnnotation(annotation)
@@ -153,11 +154,9 @@ class ViewController: UIViewController {
         
         }
         
-        
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        
         
         /*In order to segue in a more effficient way, all segues are done through the presenting view controller (this VC). i.e: In InformationTableView in didSelect, "mapViewController.performSegueWithIdentifier("toDetail", sender: self.annotationsArray[indexPath.row])"  */
         if segue.identifier == "toTableView"{
