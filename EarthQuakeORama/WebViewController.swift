@@ -14,6 +14,8 @@ class WebViewController: UIViewController {
     @IBOutlet var webView: UIWebView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        webView.canGoBack
+        webView.canGoForward
         
         
     let urlForUSGS = NSURL(string: "http://usgs.gov/aboutusgs/who_we_are/")
@@ -25,5 +27,11 @@ class WebViewController: UIViewController {
     @IBAction func dismissWebView(sender: AnyObject) {
     self.dismissViewControllerAnimated(true, completion: nil)
     
+    }
+    @IBAction func goback(sender: AnyObject) {
+       webView.goBack()
+    }
+    @IBAction func goForward(sender: AnyObject) {
+    webView.goForward()
     }
 }
