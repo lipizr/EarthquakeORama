@@ -126,10 +126,15 @@ class ViewController: UIViewController {
             // Date Parsing.
             let timeFormatter = NSDateFormatter()
             let dateFormatter = NSDateFormatter()
+        
             timeFormatter.dateFormat = "h:mm a"
-            dateFormatter.dateStyle = .ShortStyle
-            let dateTime = NSDate(timeIntervalSinceNow: time!) as NSDate
-            let updateTime = NSDate(timeIntervalSinceNow: updatedTime!) as NSDate
+            timeFormatter.timeZone = NSTimeZone(name: "GMT")
+            dateFormatter.timeZone = NSTimeZone(name: "GMT")
+            dateFormatter.dateFormat = "MM/dd/yyy"
+            //dateFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
+        
+            let dateTime = NSDate(timeIntervalSince1970: time! / 1000)
+            let updateTime = NSDate(timeIntervalSince1970: updatedTime! / 1000) as NSDate
             let stringTime = timeFormatter.stringFromDate(dateTime)
             let stringDate = dateFormatter.stringFromDate(dateTime)
             let stringUpdated = timeFormatter.stringFromDate(updateTime)
@@ -137,7 +142,7 @@ class ViewController: UIViewController {
             if let lat = item["geometry"]!!["coordinates"]!![1] as? CLLocationDegrees {
                 if let long = item["geometry"]!!["coordinates"]!![0] as? CLLocationDegrees {
                     
-                    let annotation = Annotation(magnitude: magnitude!, coordinates: CLLocationCoordinate2D(latitude: lat , longitude: long),title: locationName, desc: "this is a description", time: stringTime, date: stringDate, updatedTime: stringUpdated)
+                    let annotation = Annotation(magnitude: magnitude!, coordinates: CLLocationCoordinate2D(latitude: lat , longitude: long),title: locationName, desc: "", time: stringTime, date: stringDate, updatedTime: stringUpdated)
                     
                     // Perform a loop and append object to annotationsArray. This array gets sent to the appropriate classes in line 138-152
                     annotationsObjectsArray.append(annotation)
