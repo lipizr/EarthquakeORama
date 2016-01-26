@@ -43,10 +43,9 @@ class ViewController: UIViewController {
    
     override func viewDidLoad() {
         super.viewDidLoad()
+        activityInd.hidesWhenStopped = true
+        activityInd.startAnimating()
         
-        //TODO:FIX LOADING INDICATOR
-        //activityInd.startAnimating()
-        activityInd.hidden = true
         
         //Step 3: Set Initial Location
         let initialLocation = CLLocation(latitude: 37.7833, longitude: -122.4167)
@@ -144,12 +143,13 @@ class ViewController: UIViewController {
                     
                     let annotation = Annotation(magnitude: magnitude!, coordinates: CLLocationCoordinate2D(latitude: lat , longitude: long),title: locationName, desc: "", time: stringTime, date: stringDate, updatedTime: stringUpdated)
                     
-                    // Perform a loop and append object to annotationsArray. This array gets sent to the appropriate classes in line 138-152
+                    // Perform a loop and append object to annotationsArray. This array gets sent to the appropriate classes in line 164-182
                     annotationsObjectsArray.append(annotation)
                     
                     // Add the annotation to the map. Update annotations to map on MAIN THREAD
                     dispatch_async(dispatch_get_main_queue()) {
                        self.mapView.addAnnotation(annotation)
+                       self.activityInd.stopAnimating()
                         
                     }
                     
