@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
@@ -24,11 +24,27 @@
                                     <constraint firstAttribute="width" constant="240" id="lDm-xD-7bx"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EarthQuake " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8BE-Vk-1tX">
+                                <rect key="frame" x="216" y="135" width="168.5" height="37"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="31"/>
+                                <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="O-Rama" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="653-mU-VYS">
+                                <rect key="frame" x="201.5" y="428" width="198" height="64.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="54"/>
+                                <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="k9Z-UR-UOd" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="34C-m1-o2L"/>
+                            <constraint firstItem="k9Z-UR-UOd" firstAttribute="top" secondItem="8BE-Vk-1tX" secondAttribute="bottom" constant="8" id="8Lo-5R-bHO"/>
+                            <constraint firstItem="653-mU-VYS" firstAttribute="top" secondItem="k9Z-UR-UOd" secondAttribute="bottom" constant="8" id="K9F-KA-6qi"/>
                             <constraint firstItem="k9Z-UR-UOd" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="K9c-Qc-XxW"/>
+                            <constraint firstItem="8BE-Vk-1tX" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="irV-kN-zJh"/>
+                            <constraint firstItem="653-mU-VYS" firstAttribute="centerX" secondItem="k9Z-UR-UOd" secondAttribute="centerX" id="yOC-tF-NcR"/>
                         </constraints>
                     </view>
                 </viewController>

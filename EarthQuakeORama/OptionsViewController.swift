@@ -21,6 +21,10 @@ class OptionsViewController: UIViewController,MFMailComposeViewControllerDelegat
         self.sendFeedBackButton.clipsToBounds = true
     }
 
+    @IBAction func tapGestureTapped(sender: AnyObject) {
+    self.dismissViewControllerAnimated(true, completion: nil)
+    
+    }
     @IBAction func dismissVC(sender: AnyObject) {
         dismissViewControllerAnimated(true, completion: nil)
         

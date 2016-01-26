@@ -55,10 +55,4 @@ class InformationTableView: UIViewController, UITableViewDelegate, UITableViewDa
         cell.accessoryType = .DisclosureIndicator
         return cell
     }
-
-    
-    func unwindSegue(storyboard: UIStoryboard) {
-        
-    }
-   
 }
