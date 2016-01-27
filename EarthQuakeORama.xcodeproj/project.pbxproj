@@ -26,7 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		023C6C951C4E7C49002F513C /* EarthQuakeORama.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EarthQuakeORama.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		023C6C951C4E7C49002F513C /* Quaker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Quaker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		023C6C981C4E7C49002F513C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		023C6C9A1C4E7C49002F513C /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		023C6C9D1C4E7C49002F513C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -70,7 +70,7 @@
 		023C6C961C4E7C49002F513C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				023C6C951C4E7C49002F513C /* EarthQuakeORama.app */,
+				023C6C951C4E7C49002F513C /* Quaker.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -164,7 +164,7 @@
 			);
 			name = EarthQuakeORama;
 			productName = EarthQuakeORama;
-			productReference = 023C6C951C4E7C49002F513C /* EarthQuakeORama.app */;
+			productReference = 023C6C951C4E7C49002F513C /* Quaker.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -348,7 +348,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.-EarthQuakeORama.WillowTest.com.EarthQuakeORama";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Quaker;
 			};
 			name = Debug;
 		};
@@ -361,7 +361,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.-EarthQuakeORama.WillowTest.com.EarthQuakeORama";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Quaker;
 			};
 			name = Release;
 		};

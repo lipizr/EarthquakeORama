@@ -81,6 +81,7 @@ class ViewController: UIViewController {
     //Refreshes the Api call
     @IBAction func refreshTapped(sender: AnyObject) {
     Networking.getEarthquakeInformation(saveInfoArray)
+    activityInd.startAnimating()
     mapView.reloadInputViews()
     
     }
@@ -142,12 +143,13 @@ class ViewController: UIViewController {
                     dispatch_async(dispatch_get_main_queue()) {
                        self.mapView.addAnnotation(annotation)
                        self.activityInd.stopAnimating()
+                       self.updatedLabel.text = "Updated At: \(stringUpdated)"
                         
                     }
                     
                 }
             }
-        updatedLabel.text = "Updated At: \(stringUpdated)"
+       
         
         }
         

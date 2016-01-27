@@ -45,7 +45,6 @@ extension ViewController: MKMapViewDelegate {
                 dynamicView.addSubview(magLabel)
                 dynamicView.backgroundColor = UIColor.appleBlue()
                 anView.leftCalloutAccessoryView?.backgroundColor = UIColor.appleBlue()
-                //anView.leftCalloutAccessoryView.
                 anView.leftCalloutAccessoryView = dynamicView
                                         }
             return anView!

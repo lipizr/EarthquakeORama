@@ -9,7 +9,7 @@
         <!--EarthQuake-O-Rama-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController title="EarthQuake-O-Rama" id="BYZ-38-t0r" customClass="ViewController" customModule="EarthQuakeORama" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="EarthQuake-O-Rama" id="BYZ-38-t0r" customClass="ViewController" customModule="Quaker" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -139,7 +139,7 @@
         <!--Web View Controller-->
         <scene sceneID="c5j-fX-x9w">
             <objects>
-                <viewController id="z1s-49-IoG" customClass="WebViewController" customModule="EarthQuakeORama" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="z1s-49-IoG" customClass="WebViewController" customModule="Quaker" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="AKu-8J-gtM"/>
                         <viewControllerLayoutGuide type="bottom" id="Phx-PU-UA7"/>
@@ -270,7 +270,7 @@
         <!--Detail View Controller-->
         <scene sceneID="DCM-bZ-0t8">
             <objects>
-                <viewController storyboardIdentifier="DetailViewController" id="sav-bj-XJR" customClass="DetailViewController" customModule="EarthQuakeORama" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailViewController" id="sav-bj-XJR" customClass="DetailViewController" customModule="Quaker" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="gHL-DQ-9Ia"/>
                         <viewControllerLayoutGuide type="bottom" id="6ge-MM-Jah"/>
@@ -421,7 +421,7 @@
         <!--Options View Controller-->
         <scene sceneID="Hbh-B7-qRP">
             <objects>
-                <viewController storyboardIdentifier="OptionsViewController" id="b9h-A8-ju9" customClass="OptionsViewController" customModule="EarthQuakeORama" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="OptionsViewController" id="b9h-A8-ju9" customClass="OptionsViewController" customModule="Quaker" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="sKU-1F-6zM"/>
                         <viewControllerLayoutGuide type="bottom" id="s7K-FK-zRD"/>
@@ -542,7 +542,7 @@
         <!--Information Table View-->
         <scene sceneID="lAq-HV-yCd">
             <objects>
-                <viewController storyboardIdentifier="InformationTableView" id="Opd-Jk-WSI" customClass="InformationTableView" customModule="EarthQuakeORama" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="InformationTableView" id="Opd-Jk-WSI" customClass="InformationTableView" customModule="Quaker" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="lbR-j3-F1d"/>
                         <viewControllerLayoutGuide type="bottom" id="IN2-c0-O3H"/>
@@ -584,7 +584,7 @@
                                 <color key="separatorColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="InformationTVCell" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="infoTableCellReuse" rowHeight="84" id="1aY-hu-gx3" customClass="InformationTVCell" customModule="EarthQuakeORama" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="InformationTVCell" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="infoTableCellReuse" rowHeight="84" id="1aY-hu-gx3" customClass="InformationTVCell" customModule="Quaker" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="600" height="84"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1aY-hu-gx3" id="RpH-Ba-CxG">
