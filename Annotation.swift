@@ -19,6 +19,7 @@ class Annotation: NSObject, MKAnnotation {
     let time: String?
     let date: String?
     let updatedTime: String?
+    // Wrote custom description to further present different levels of Magnitudes and their effect.
     var descriptionArray: [String] = ["Earthquakes like this with a magnitude of about 2.0 or less are usually called microearthquakes; they are not commonly felt by people and are generally recorded only on local seismographs.", "Felt indoors by many, outdoors by few during the day. At night, some awakened. Dishes, windows, doors disturbed; walls make cracking sound. Sensation like heavy truck striking building. Standing motor cars rocked noticeably.", "Damage negligible in buildings of good design and construction; slight to moderate in well-built ordinary structures; considerable damage in poorly built or badly designed structures; some chimneys broken."]
 
     

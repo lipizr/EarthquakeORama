@@ -32,7 +32,7 @@ class OptionsViewController: UIViewController,MFMailComposeViewControllerDelegat
     
     @IBAction func sendEmailButtonTapped(sender: AnyObject) {
         
-        // check if running on sim.
+        // check if running on sim. AlertView deprecated. Use AlerController instead.
         #if (arch(i386) || arch(x86_64)) && os(iOS)
             print("running on sim")
             let alert = UIAlertController(title: "Silly You!", message:"You can't send feedback on a simulator, try running on an actual device", preferredStyle: .Alert)
@@ -47,13 +47,11 @@ class OptionsViewController: UIViewController,MFMailComposeViewControllerDelegat
                 self.showSendMailErrorAlert()
             }
         #endif
-        
-    
+      
     }
     
     @IBAction func aboutButtonTapped(sender: AnyObject) {
-    
-        //do webview stuff here.
+     
         //UIApplication.sharedApplication().openURL(NSURL(string: "http://www.usgs.gov/aboutusgs/")!)
         performSegueWithIdentifier("toWebView", sender: self)
        
@@ -66,7 +64,6 @@ class OptionsViewController: UIViewController,MFMailComposeViewControllerDelegat
         mailComposerVC.setToRecipients(["lipizdesigns@gmail.com"])
         mailComposerVC.setSubject("Reviewing your application")
         mailComposerVC.setMessageBody("", isHTML: false)
-        
         return mailComposerVC
     }
     

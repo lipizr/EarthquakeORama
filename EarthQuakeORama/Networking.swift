@@ -9,12 +9,11 @@
 import UIKit
 import SystemConfiguration
 
-class API: NSObject {
+class Networking: NSObject {
     
-    
-    static func getEarthquakeInformation(completionHandler: (informationArray: NSMutableArray) -> ())  {
+    static func getEarthquakeInformation(completionHandler: (informationArray: NSMutableArray) -> ()) {
         
-        // check for network connection and send alert.
+        // Check for network connection and send alert.
         if NetworkReachability.isConnectedToNetwork() == true {
             let session = NSURLSession.sharedSession()
             let urlString = "http://ehp2-earthquake.wr.usgs.gov/fdsnws/event/1/query?format=geojson&limit=60"
@@ -28,7 +27,6 @@ class API: NSObject {
                     
                     let parsedResult = try! NSJSONSerialization.JSONObjectWithData(data! , options: NSJSONReadingOptions.AllowFragments)
                     let dataDict = parsedResult as! NSDictionary
-                    
                     // This holds all the information we need from the API.
                     if let result = dataDict["features"] as? NSMutableArray {
                         completionHandler(informationArray: result)

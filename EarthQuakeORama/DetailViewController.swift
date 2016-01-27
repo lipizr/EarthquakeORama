@@ -35,7 +35,7 @@ class DetailViewController: UIViewController {
         bottomViewHolder.layer.borderColor = UIColor.blackColor().CGColor
         
  
-        // change the magnitude image depending on the magnitude
+        // Change the magnitude image depending on the magnitude. Try Refactor with Dict.
         if annotationObject.magnitude < 2.0{
                 magImage.image = UIImage(named: "greenMarker")
                 descriptionLabel.text = annotationObject.descriptionArray[0]
@@ -55,11 +55,8 @@ class DetailViewController: UIViewController {
     // This method centers the map on the initial location
     func centerMapOnLocation(location:CLLocation) {
         
-            // This sets radius distance. I set it to 10K km.
         let regionRadius : CLLocationDistance = 500000
-        
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate, regionRadius * 2.0, regionRadius * 2.0)
-        // setRegion tells the mapview to display the region.
         mapView.setRegion(coordinateRegion, animated: true)
     }
    

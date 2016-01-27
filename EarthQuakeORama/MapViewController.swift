@@ -11,7 +11,6 @@ import Foundation
 //Step 1: Import MapKit
 import MapKit
 
-
 class ViewController: UIViewController {
   
     @IBOutlet var activityInd: UIActivityIndicatorView!
@@ -21,9 +20,9 @@ class ViewController: UIViewController {
     var Infoarray = NSMutableArray()
     var annotationsObjectsArray = [Annotation]()
     
-    //Step 2: Create an outlet for your map
+    // Create an outlet for your map
     @IBOutlet var mapView: MKMapView!
-    
+    // Change Map Type
     @IBAction func segControlTapped(sender: AnyObject) {
         switch sender.selectedSegmentIndex {
         case 0:
@@ -45,12 +44,9 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         activityInd.hidesWhenStopped = true
         activityInd.startAnimating()
+        activityInd.color = UIColor.appleBlue()
         
-        
-        //Step 3: Set Initial Location
-        let initialLocation = CLLocation(latitude: 37.7833, longitude: -122.4167)
-        
-        //set the delegate of the map to equal self. (this class)
+        //set the delegate of the map
         mapView.delegate = self
         mapView.showsUserLocation = true
         
@@ -74,17 +70,17 @@ class ViewController: UIViewController {
             
         }
     }
-    //call the api after the viewDidAppear.
+    //Call the api method after the viewDidAppear.
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
        
-        API.getEarthquakeInformation(saveInfoArray)
+        Networking.getEarthquakeInformation(saveInfoArray)
         
     }
     
-    // refreshes the Api call
+    //Refreshes the Api call
     @IBAction func refreshTapped(sender: AnyObject) {
-    API.getEarthquakeInformation(saveInfoArray)
+    Networking.getEarthquakeInformation(saveInfoArray)
     mapView.reloadInputViews()
     
     }
@@ -104,7 +100,7 @@ class ViewController: UIViewController {
             
             if annot.title == selectedAnnotation!.title! {
             
-                //break the loop and send, and sender is going to be annot I found
+                // Check to see if the title of the annotation matches the title of the one selected.
                 performSegueWithIdentifier("toDetail", sender: annot)
                 break
             
@@ -122,22 +118,18 @@ class ViewController: UIViewController {
             let magnitude = item["properties"]!!["mag"] as? Double
             let time = item["properties"]!!["time"] as? NSTimeInterval
             let updatedTime = item["properties"]!!["updated"] as? NSTimeInterval
-            // Date Parsing.
             let timeFormatter = NSDateFormatter()
             let dateFormatter = NSDateFormatter()
-        
             timeFormatter.dateFormat = "h:mm a"
             timeFormatter.timeZone = NSTimeZone(name: "GMT")
-            dateFormatter.timeZone = NSTimeZone(name: "GMT")
             dateFormatter.dateFormat = "MM/dd/yyy"
-            //dateFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
-        
+            dateFormatter.timeZone = NSTimeZone(name: "GMT")
             let dateTime = NSDate(timeIntervalSince1970: time! / 1000)
             let updateTime = NSDate(timeIntervalSince1970: updatedTime! / 1000) as NSDate
             let stringTime = timeFormatter.stringFromDate(dateTime)
             let stringDate = dateFormatter.stringFromDate(dateTime)
             let stringUpdated = timeFormatter.stringFromDate(updateTime)
-            
+            // Latitude and Longitude must be binded to not show as optionals.
             if let lat = item["geometry"]!!["coordinates"]!![1] as? CLLocationDegrees {
                 if let long = item["geometry"]!!["coordinates"]!![0] as? CLLocationDegrees {
                     
@@ -181,10 +173,10 @@ class ViewController: UIViewController {
         }
     }
     
-    // This method centers the map on the initial location
+    // This is a helper method that gets called when user wants to see current location.
     func centerMapOnLocation(location:CLLocation) {
         
-        // This sets radius distance. I set it to 10K km.
+        // This sets radius distance.
         let regionRadius : CLLocationDistance = 500000
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate, regionRadius * 2.0, regionRadius * 2.0)
         // setRegion tells the mapview to display the region.

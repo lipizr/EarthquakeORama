@@ -21,17 +21,15 @@ class WebViewController: UIViewController {
     let urlForUSGS = NSURL(string: "http://usgs.gov/aboutusgs/who_we_are/")
         let request = NSURLRequest(URL: urlForUSGS!)
         webView.loadRequest(request)
-   
     }
 
     @IBAction func dismissWebView(sender: AnyObject) {
-    self.dismissViewControllerAnimated(true, completion: nil)
-    
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     @IBAction func goback(sender: AnyObject) {
-       webView.goBack()
+        webView.goBack()
     }
     @IBAction func goForward(sender: AnyObject) {
-    webView.goForward()
+        webView.goForward()
     }
 }

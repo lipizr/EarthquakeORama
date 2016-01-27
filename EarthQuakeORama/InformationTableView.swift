@@ -35,6 +35,7 @@ class InformationTableView: UIViewController, UITableViewDelegate, UITableViewDa
        
     }
     
+    //Grabs value of cell and passes info to mapViewController to perform a "clean" segue.
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
             let mapViewController = (self.presentingViewController as! UINavigationController).viewControllers[0]
             self.dismissViewControllerAnimated(true) {
@@ -49,7 +50,6 @@ class InformationTableView: UIViewController, UITableViewDelegate, UITableViewDa
         cell.locationLabel?.text = annotationsArray[indexPath.row].title!
         cell.magLabel?.text = "MAG: \(annotationsArray[indexPath.row].magnitude!)"
         cell.timeLabel.text = annotationsArray[indexPath.row].time
-        //TODO: FIX DATE TIME.
         cell.dateLabel.text = annotationsArray[indexPath.row].date
         cell.backgroundColor = UIColor.clearColor()
         cell.accessoryType = .DisclosureIndicator
